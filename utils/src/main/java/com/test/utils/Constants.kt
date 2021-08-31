@@ -135,6 +135,7 @@ const val SPLASH_CLASS_NAME = "com.homemade.user.SplashActivity"
 const val FAVOURITES_CLASS_NAME = "com.homemade.main.menu.favourites.FavouriteActivity"
 const val ORDERS_DETAILS_NAME = "com.homemade.orders.order_details.OrderDetailsActivity"
 const val TERMS_AND_CONDITIONS = "com.homemade.main.menu.faq.FaqAndTermsActivity"
+const val ADD_PRODUCT_FIRST = "com.homemade.product_data.AddProductFirstStepActivity"
 
 object NavigationUtils{
     fun goToDestination(ctx1:Context,ctx: Class<*>){

@@ -111,6 +111,7 @@ object Libraries {
     const val servicesModule = ":services"
     const val mainModule = ":main"
     const val ordersListModule = ":orderslist"
+    const val productDataModule = ":product_data"
 
     const val checkoutModule = ":checkout"
     const val ordersModule = ":orders"

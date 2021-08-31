@@ -13,6 +13,7 @@ import com.floriaapp.core.ui.OrderViewModel
 import com.homemade.orderslist.adapter.OrderPagedListAdapter
 import com.homemade.orderslist.databinding.FragmentOrderBinding
 import com.homemade.orderslist.details.OrderDetailsActivity
+import com.test.utils.ADD_PRODUCT_FIRST
 import com.test.utils.Bases.BaseActivity
 import com.test.utils.Bases.BaseFragment
 import com.test.utils.Ext.showToast
@@ -68,6 +69,11 @@ class OrderFragment : BaseFragment(), OrderPagedListAdapter.OnItemClickOfProduct
             dismissProgressDialog()
             requireActivity().showToast(it)
         })
+
+        binding.btnNewOrder.setOnClickListener {
+            val intent = Intent(requireContext(), Class.forName(ADD_PRODUCT_FIRST))
+            context?.startActivity(intent)
+        }
 
     }
 

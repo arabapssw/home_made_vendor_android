@@ -8,10 +8,10 @@ import com.test.utils.R
 
 class CustomUploadBtn(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
-    var imageView:ImageView
+    //var imageView:ImageView
     init {
         inflate(context, R.layout.custom_upload_btn, this)
-        imageView = findViewById(R.id.iv_upload)
+     //   imageView = findViewById(R.id.iv_upload)
     }
 
 

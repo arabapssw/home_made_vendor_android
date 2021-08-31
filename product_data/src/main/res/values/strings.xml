@@ -1,0 +1,10 @@
+<resources>
+    <string name="new_product">New Product</string>
+    <string name="name_product_arabic">Name of product (arabic language)</string>
+    <string name="name_product_english">Name of product (English Language)</string>
+    <string name="description_product">Description Product (Arabic Language)</string>
+    <string name="description_product_en">Description Product (English Language)</string>
+    <string name="price_product">Product price</string>
+    <string name="quantity_product">Quantity Product</string>
+    <string name="delivery_in_seller_location_only">Delivery in Seller Location only</string>
+</resources>

@@ -116,7 +116,7 @@ class OrderDetailsAdapter(private val interaction: Interaction? = null) :
                     .setAllCorners(CornerFamily.ROUNDED,10f)
                     .build();
             itemView.findViewById<TextView>(R.id.tv_product_name).text = item.name
-          //  itemView.findViewById<TextView>(R.id.tv_qunatity_).text = item.quantity.toString()
+            itemView.findViewById<TextView>(R.id.tv_qunatity_).text = item.quantity.toString()
             itemView.findViewById<TextView>(R.id.tv_price).text =
                 item.price.toString() + " " + resources.getString(R.string.egp)
 

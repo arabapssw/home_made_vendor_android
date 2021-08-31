@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_product">منتج جديد</string>
+    <string name="name_product_arabic">إسم المنتج ( اللغة العربية )</string>
+    <string name="name_product_english">إسم المنتج ( اللغة الإنجليزية )</string>
+    <string name="description_product">وصف المنتج ( اللغه العربية )</string>
+    <string name="description_product_en">وصف المنتج ( اللغه الإنجليزية )</string>
+    <string name="price_product">سعر المنتج</string>
+    <string name="quantity_product">كمية المنتج</string>
+    <string name="delivery_in_seller_location_only">التوصيل بمدينة البائع فقط</string>
+
+</resources>

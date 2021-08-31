@@ -150,6 +150,7 @@
     <string name="ready_deliver">Deliverd</string>
     <string name="ready_done">Done </string>
     <string name="no_notes">No Notes</string>
+    <string name="add_photo">Add photo for product (png,jpeg)</string>
 
 
 </resources>
