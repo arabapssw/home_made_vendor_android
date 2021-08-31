@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="accept">قبول</string>
+    <string name="cancel_order">إلغاء</string>
+    <string name="new_order">طلب جديد</string>
+    <string name="prepareing_word">تجهيز</string>
+    <string name="ship">شحن</string>
+    <string name="delivering">جاهز للتوصيل</string>
+    <string name="done_deliverd">تم التسليم</string>
+    <string name="accepting">قبول</string>
+    <string name="image_title">الصورة والإسم</string>
+    <string name="price_title">السعر</string>
+    <string name="receipt_details">تفاصيل الفاتورة</string>
+    <string name="needed_products">المنتجات المطلوبة</string>
+    <string name="total">إجمالي المبلغ الكلي</string>
+
+</resources>

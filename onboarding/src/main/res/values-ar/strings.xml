@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="first_onboardingtitle"> حياك في شغل بيت !</string>
+    <string name="second_onboardingtitle">خيارات متنوعة تناسب إحتياجاتك</string>
+    <string name="third_onboardingtitle">تجربة فريدة من صنع الأسر المنتجة و الأفراد \n  المستقلين المبدعين</string>
+    <string name="next_title">التالي</string>
+    <string name="skip_title">تخطي</string>
+
+</resources>

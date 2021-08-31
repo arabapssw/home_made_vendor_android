@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E2006F</color>
+    <color name="colorgray">#808080</color>
+    <color name="darkgray">#585858</color>
+    <color name="colorBlack">#000000</color>
+    <color name="black41">#292929</color>
+
+    <color name="colorGrayWhite">#C3C1C1</color>
+    <color name="colorG">#E8E8E8</color>
+    <color name="teaBlue">#0199B1</color>
+    <color name="blue_color">#E7F5F7</color>
+    <color name="blue206">#CEECEF</color>
+
+    <color name="blackish">#2E2E2E</color>
+    <color name="blackish93">#5D5C5C</color>
+    <color name="blackish80">#504F4F</color>
+
+    <color name="gray">#CACACA</color>
+    <color name="coolGray">#AAB0BB</color>
+    <color name="gray79">#4F4E4E</color>
+
+    <color name="gray_white">#FCFCFC</color>
+    <color name="gray104">#686868</color>
+    <color name="gray93">#5D5D5D</color>
+    <color name="gray142">#8E8E8E</color>
+    <color name="gray146">#929292</color>
+    <color name="gray80">#504F4F</color>
+    <color name="gray178">#B2B2B2</color>
+    <color name="gray246">#F6F6F6</color>
+
+
+    <color name="grayish">#B2B2B2</color>
+    <color name="gray112">#707070</color>
+    <color name="gray213">#D5D5D5</color>
+    <color name="gray226">#E0E6EB</color>
+    <color name="gray206">#CED4DA</color>
+
+    <color name="gray138">#8A8A8A</color>
+
+    <color name="blackTint">#6F000000</color>
+    <color name="red_color">#E10303</color>
+
+
+    <color name="brownishGray">#5E5E5E</color>
+    <color name="borderGray">#EEEEEE</color>
+    <color name="titleBlack56">#383838</color>
+
+    <color name="titleBlack">#2E2E2E</color>
+    <color name="colorAccent">#FDB913</color>
+    <color name="colorYello">#FDE8A9</color>
+    <color name="colorpinkywhite">#FCDBEB</color>
+    <color name="colorpinkywhitess">#FBEEF5</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGreen">#41B200</color>
+    <color name="Green0">#00BE4C</color>
+
+    <color name="colorGreenWhitish">#E2F0E9</color>
+    <color name="colorYellowishWhite">#FFF7DE</color>
+    <color name="chestnut">#682300</color>
+    <color name="gray238">#EEEEEE</color>
+    <color name="colorBlueWhite">#B2E0E7</color>
+    <color name="colorBlue184">#B8E3DF</color>
+
+    <color name="colorBlueWhiteish">#F5F9FA</color>
+    <color name="colorPaleBlue">#E4F4F6</color>
+
+
+</resources>

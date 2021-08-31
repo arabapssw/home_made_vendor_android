@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/testFragment">
+
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.homemade.home.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/categoriesFragment2"-->
+<!--        android:name="com.homemade.categories.CategoriesFragment"-->
+<!--        android:label="CategoriesFragment" />-->
+    <fragment
+        android:id="@+id/productsFragment2"
+        android:name="com.homemade.products.productsFragment"
+        android:label="productsFragment" />
+<!--    <fragment-->
+<!--        android:id="@+id/cartFragment2"-->
+<!--        android:name="com.homemade.cart.CartFragment"-->
+<!--        android:label="CartFragment" />-->
+    <fragment
+        android:id="@+id/ordersListFragment"
+        android:name="com.homemade.orderslist.OrdersListFragment"
+        android:label="HomeFragment" />
+</navigation>

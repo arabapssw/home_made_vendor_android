@@ -1,0 +1,30 @@
+<resources>
+    <string name="skip_title">Skip</string>
+    <string name="telephone_number_title">telephone Number</string>
+    <string name="remember_me_title">Remember me</string>
+    <string name="sign_in_title">Sign In</string>
+    <string name="password_title">Password</string>
+    <string name="forget_password_title"><br>Forget Password</br></string>
+    <string name="are_you_new_user_create_account_title">Are you new user ?</string>
+    <string name="create_account_title">create account</string>
+    <string name="checkInput">Please insert missing fields</string>
+    <string name="sex_title">Gender</string>
+    <string name="save_title">Save</string>
+    <string name="nationality_title">Nationality</string>
+    <string name="country_title">Country</string>
+    <string name="first_name_title">First Name</string>
+    <string name="second_name_title">Second name</string>
+    <string name="email_title">Email</string>
+    <string name="confirm_password_title">Confirm Password</string>
+    <string name="accept_terms_and_conditions_title">Accept Terms and Conditions</string>
+    <string name="do_u_have_account_title">do u have account?</string>
+    <string name="male_title">Male</string>
+    <string name="female_title">Female</string>
+    <string name="register">Register</string>
+    <string name="empty_field">Empty field</string>
+    <string name="create_account_title_">Create account</string>
+    <string name="accpt_terms_title">You should accept Terms and conditions</string>
+    <string name="wrong_phone_or_password">Wrong Phone or Password</string>
+    <string name="shortPassword">short Password</string>
+    <string name="not_same_password">Not Same Password</string>
+</resources>

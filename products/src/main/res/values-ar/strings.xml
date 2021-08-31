@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popular_products_title">المنتجات الأكثر شهرة</string>
+    <string name="all_products_title">جميع المنتجات</string>
+    <string name="disappear">إخفاء</string>
+    <string name="tasbet">تثبيت</string>
+
+</resources>

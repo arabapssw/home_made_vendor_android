@@ -1,0 +1,29 @@
+package com.floriaapp.core.domain.model.provider_.orders
+
+
+import com.google.gson.annotations.SerializedName
+
+data class User(
+    @SerializedName("avatar")
+    val avatar: String,
+    @SerializedName("country")
+    val country: CountryX,
+    @SerializedName("dial_code")
+    val dialCode: String,
+    @SerializedName("email")
+    val email: String,
+    @SerializedName("first_name")
+    val firstName: String,
+    @SerializedName("gender")
+    val gender: String,
+    @SerializedName("last_name")
+    val lastName: String,
+    @SerializedName("nationality")
+    val nationality: Nationality,
+    @SerializedName("phone")
+    val phone: String,
+    @SerializedName("verified")
+    val verified: Boolean,
+    @SerializedName("wallet_balance")
+    val walletBalance: Int
+)

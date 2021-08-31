@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/iv_profile"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile"
+        tools:text="Hesham Mohamed Ali"
+        app:layout_constraintEnd_toEndOf="@id/iv_profile"
+        android:textStyle="bold"
+        android:textColor="@color/blackish"
+        android:textSize="12sp"
+        android:id="@+id/tv_user_name"
+        android:fontFamily="@font/din_arabic_bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+        tools:text="Hesham@gmail.com"
+        android:id="@+id/tv_email"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/gray93"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_email"
+        app:layout_constraintTop_toBottomOf="@id/tv_email"
+        android:text="@string/wallet_data"
+        android:id="@+id/tv_wallet_data"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/gray93"
+        />
+
+
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:id="@+id/view"
+        android:background="@color/gray213"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_wallet_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:text="@string/profile_data"
+        android:padding="20dp"
+        android:id="@+id/tv_profile_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_information"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_data"
+        android:text="@string/location"
+        android:padding="20dp"
+        android:id="@+id/tv_profile_locations"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_icon_material_location_on"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_locations"
+        android:text="@string/your_orders_title"
+        android:padding="20dp"
+        android:id="@+id/tv_orders"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_icon_shopping_cart"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_orders"
+        android:text="@string/favoruites"
+        android:padding="20dp"
+        android:id="@+id/tv_favourites"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_icon_awesome_heart"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_favourites"
+        android:text="@string/questionss"
+        android:padding="20dp"
+        android:id="@+id/tv_questions"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_icon_awesome_question_circle"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_questions"
+        android:text="@string/about"
+        android:padding="20dp"
+        android:id="@+id/tv_about"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_info"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/language_title"
+        android:padding="10dp"
+        android:id="@+id/tv_language"
+        android:textColor="@color/blackish"
+        android:drawablePadding="10dp"
+        app:layout_constraintStart_toStartOf="@id/tv_about"
+        app:layout_constraintTop_toBottomOf="@id/tv_about"
+        app:drawableStartCompat="@drawable/ic_saudi_arabia" />
+
+
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:id="@+id/view2"
+        android:background="@color/gray213"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_language"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_about"
+        android:text="@string/follow_us_on"
+        android:textColor="@color/blackish"
+        android:padding="10dp"
+        android:id="@+id/tv_follow_us"
+        app:layout_constraintTop_toBottomOf="@id/view2"
+        />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:src="@drawable/instagram_"
+        app:layout_constraintStart_toEndOf="@id/tv_follow_us"
+        app:layout_constraintTop_toTopOf="@id/tv_follow_us"
+        app:layout_constraintBottom_toBottomOf="@id/tv_follow_us"
+        android:layout_marginStart="15dp"
+        android:id="@+id/iv_instgram"
+        />
+
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_twitter"
+        app:layout_constraintStart_toEndOf="@id/iv_instgram"
+        app:layout_constraintTop_toTopOf="@id/tv_follow_us"
+        app:layout_constraintBottom_toBottomOf="@id/tv_follow_us"
+        android:layout_marginStart="20dp"
+        android:id="@+id/iv_twitter"
+        />
+
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_facebook"
+        app:layout_constraintStart_toEndOf="@id/iv_twitter"
+        app:layout_constraintTop_toTopOf="@id/tv_follow_us"
+        app:layout_constraintBottom_toBottomOf="@id/tv_follow_us"
+        android:layout_marginStart="15dp"
+        android:id="@+id/iv_facebook"
+        android:visibility="gone"
+        />
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/tv_follow_us"
+        android:text="@string/sign_out_title"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:id="@+id/tv_sign_out"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="15dp"
+        android:textColor="@color/blackish"
+        />
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/companytitle"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_out"
+        app:layout_constraintTop_toBottomOf="@id/tv_sign_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="10sp"
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_home"
+        app:constraint_referenced_ids="view,iv_profile,tv_profile_locations,tv_profile_data,tv_orders,tv_favourites,tv_questions,tv_follow_us,iv_instgram,iv_twitter,tv_user_name,tv_email"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ScrollView
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:overScrollMode="never"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".signup.FirstStepRegistration">
+
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/teaBlue"
+            app:layout_constraintStart_toStartOf="@id/custom_confirm_password"
+            app:layout_constraintTop_toBottomOf="@id/custom_confirm_password" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:id="@+id/tv_check"
+            android:text="@string/accept_terms_and_conditions_title"
+            android:textColor="@color/teaBlue"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/check"
+            app:layout_constraintTop_toTopOf="@id/check"
+            app:layout_constraintBottom_toBottomOf="@id/check"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_do_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/do_u_have_account_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creat_account" />
+
+        <TextView
+            android:id="@+id/tv_signIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="12sp"
+            android:padding="5dp"
+            android:text="@string/register"
+            android:textColor="@color/teaBlue"
+            app:layout_constraintBottom_toBottomOf="@id/tv_do_you"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_do_you"
+            app:layout_constraintTop_toTopOf="@id/tv_do_you" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/creat_account"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/teaBlue"
+            android:text="@string/create_account_title_"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="@id/custom_confirm_password"
+            app:layout_constraintStart_toStartOf="@id/custom_confirm_password"
+            app:layout_constraintTop_toBottomOf="@id/check" />
+
+
+        <com.test.utils.custom.CustomTelephone
+            android:id="@+id/custom_telephone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:maxLength="15"
+            android:text="@string/telephone_number_title"
+            app:layout_constraintEnd_toEndOf="@id/custom_secondName"
+            app:layout_constraintStart_toStartOf="@id/custom_secondName"
+            app:layout_constraintTop_toBottomOf="@id/custom_secondName" />
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/custom_firstName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="text"
+            android:text="@string/first_name_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/custom_secondName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@string/second_name_title"
+            app:layout_constraintEnd_toEndOf="@id/custom_firstName"
+            app:layout_constraintStart_toStartOf="@id/custom_firstName"
+            app:layout_constraintTop_toBottomOf="@id/custom_firstName" />
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/custom_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:text="@string/email_title"
+            app:layout_constraintEnd_toEndOf="@id/custom_telephone"
+            app:layout_constraintStart_toStartOf="@id/custom_telephone"
+            app:layout_constraintTop_toBottomOf="@id/custom_telephone" />
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/custom_password_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:inputType="textPassword"
+            android:text="@string/password_title"
+            app:isPassword="true"
+            app:layout_constraintEnd_toEndOf="@id/custom_email"
+            app:layout_constraintStart_toStartOf="@id/custom_email"
+            app:layout_constraintTop_toBottomOf="@id/custom_email" />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/custom_confirm_password"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toTopOf="@id/check"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:inputType="textPassword"
+            android:text="@string/confirm_password_title"
+            app:isPassword="true"
+            app:layout_constraintEnd_toEndOf="@id/custom_password_register"
+            app:layout_constraintStart_toStartOf="@id/custom_password_register"
+            app:layout_constraintTop_toBottomOf="@id/custom_password_register" />
+
+        <com.test.utils.custom.CustomToolbar
+            android:id="@+id/custom_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_account_title"
+            app:isBack="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</LinearLayout>

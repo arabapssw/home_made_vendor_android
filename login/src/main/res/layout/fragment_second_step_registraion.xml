@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".signup.SecondStepRegistration">
+    <com.test.utils.custom.CustomToolbar
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/create_account_title"
+        app:isBack="true"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/toolbar"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:id="@+id/iv"
+        android:src="@drawable/ic_icon_profile"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintStart_toEndOf="@id/iv"
+        app:layout_constraintBottom_toBottomOf="@id/iv"
+        app:layout_constraintEnd_toEndOf="@id/iv"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sex_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv"
+        android:layout_margin="10dp"
+        android:id="@+id/tv_gender"
+        android:textColor="@color/blackish"
+        />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_gender"
+        app:layout_constraintTop_toBottomOf="@id/tv_gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="5dp"
+        app:checkedButton="@id/btn_male"
+        app:selectionRequired="true"
+        app:singleSelection="true"
+        android:id="@+id/toggleButton">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/btn_male"
+            android:insetRight="5dp"
+            android:insetLeft="5dp"
+            android:layout_height="wrap_content"
+            android:text="@string/male_title"
+            android:backgroundTint="@color/teaBlue"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/btn_female"
+            android:layout_marginStart="5dp"
+            android:insetRight="5dp"
+            android:insetLeft="5dp"
+            android:layout_height="wrap_content"
+            android:text="@string/female_title"
+            android:backgroundTint="@color/colorWhite"
+            android:textColor="@color/teaBlue"
+            android:textAllCaps="false"
+            />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/country_title"
+        android:id="@+id/tv_country"
+        app:layout_constraintStart_toStartOf="@id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton"
+        android:textColor="@color/blackish"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:id="@+id/spinner_countries_frame"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/box_tea_blue_rectangle"
+        app:layout_constraintStart_toStartOf="@id/tv_country"
+        app:layout_constraintTop_toBottomOf="@id/tv_country"
+        app:layout_constraintEnd_toEndOf="parent">
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/spinner_countries"
+        android:backgroundTint="@color/teaBlue"
+        android:padding="0dip"
+
+        />
+    </FrameLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nationality_title"
+        android:id="@+id/tv_nationality"
+        app:layout_constraintStart_toStartOf="@id/spinner_countries_frame"
+        app:layout_constraintTop_toBottomOf="@id/spinner_countries_frame"
+        android:textColor="@color/blackish"
+        android:layout_marginTop="20dp"
+        />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:id="@+id/spinner_nationality_frame"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/box_tea_blue_rectangle"
+        app:layout_constraintStart_toStartOf="@id/tv_nationality"
+        app:layout_constraintTop_toBottomOf="@id/tv_nationality"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_nationality"
+        android:backgroundTint="@color/teaBlue"
+        android:padding="0dip"
+
+        />
+    </FrameLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_gender"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/spinner_nationality_frame"
+        android:text="@string/save_title"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:id="@+id/btn_save"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/teaBlue"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="categories_title">الإعدادات</string>
+    <string name="products_title">المنتجات</string>
+    <string name="home_title">الرئيسية</string>
+    <string name="basket_title">الطلبات</string>
+    <string name="services_title">الفواتير</string>
+    <string name="your_orders_title">قائمة طلباتك</string>
+    <string name="sign_out_title">تسجيل الخروج</string>
+    <string name="location">عناوين التوصيل</string>
+    <string name="favoruites">منتجاتي المفضلة</string>
+    <string name="questionss">الأسئلة والتقييمات</string>
+    <string name="about">عن شغل بيت</string>
+    <string name="profile_data">البيانات الشخصية</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="follow_us_on">تابعنا علي</string>
+    <string name="language_title">اللغة العربية</string>
+    <string name="arabic_title">اللغة العربية</string>
+    <string name="english_title">"English "</string>
+    <string name="wallet_data">رصيدك</string>
+    <string name="companytitle">  جميع حقوق الملكية محفوظة لدى شغل بيت  &#169;</string>
+
+
+</resources>

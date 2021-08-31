@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/iv_user"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            tools:src="@drawable/food" />
+
+        <TextView
+            android:id="@+id/tv_order_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_ordeR_number"
+            app:layout_constraintStart_toEndOf="@id/tv_ordeR_number"
+            app:layout_constraintTop_toTopOf="@id/tv_ordeR_number"
+            tools:text="9/9/20210" />
+
+
+        <TextView
+            android:id="@+id/tv_ordeR_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/gray80"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#1234" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/blackish80"
+            android:textSize="12sp"
+            android:id="@+id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user"
+            app:layout_constraintStart_toEndOf="@id/iv_user"
+            app:layout_constraintTop_toTopOf="@id/iv_user"
+            tools:text="Ahmed Mohamed" />
+
+        <TextView
+            android:id="@+id/total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/blackish80"
+            android:textSize="12sp"
+            android:drawableStart="@drawable/ic_icon"
+            android:drawablePadding="5dp"
+            app:layout_constraintStart_toStartOf="@id/iv_user"
+            app:layout_constraintTop_toBottomOf="@id/iv_user"
+            tools:text="3500 real " />
+
+
+        <TextView
+            android:id="@+id/tv_type_payment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/teaBlue"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_order_status"
+            app:layout_constraintBottom_toBottomOf="@id/total_cost"
+            app:layout_constraintStart_toEndOf="@id/total_cost"
+            app:layout_constraintTop_toTopOf="@id/total_cost"
+            tools:text="type of Payment" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_pale"
+            android:paddingStart="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/din_arabic_bold"
+            android:paddingTop="3dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="3dp"
+            android:layout_marginEnd="5dp"
+            android:id="@+id/tv_order_status"
+            tools:text="Done payment"
+            android:textColor="@color/Green0"
+            app:layout_constraintBottom_toBottomOf="@id/tv_type_payment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_type_payment"
+            app:layout_constraintTop_toTopOf="@id/tv_type_payment" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/blue206"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_ordeR_number" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancel_order"
+            android:id="@+id/btn_accept"
+            app:layout_constraintStart_toStartOf="@id/iv_user"
+            app:layout_constraintTop_toBottomOf="@id/total_cost"
+            android:layout_marginTop="23dp"
+            android:backgroundTint="@color/teaBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            app:icon="@drawable/ic_check_right"
+            app:iconGravity="textStart"
+            android:text="@string/accept"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintHorizontal_weight="1.5"
+            android:layout_marginEnd="5dp"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:id="@+id/btn_cancel_order"
+            app:layout_constraintStart_toEndOf="@id/btn_accept"
+            app:layout_constraintTop_toBottomOf="@id/total_cost"
+            android:layout_marginTop="23dp"
+            app:strokeColor="@color/teaBlue"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_marginBottom="20dp"
+            app:icon="@drawable/ic_basket"
+            app:iconTint="@color/teaBlue"
+            app:iconGravity="textStart"
+            android:text="@string/cancel_order"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/teaBlue"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

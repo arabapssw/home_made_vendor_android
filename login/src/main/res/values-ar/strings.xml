@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="skip_title">Skip</string>
+    <string name="telephone_number_title">رقم الهاتف</string>
+    <string name="remember_me_title">تذكر كلمة السر</string>
+    <string name="sign_in_title">تسجيل الدخول</string>
+    <string name="password_title">كلمة المرور</string>
+    <string name="forget_password_title"><u>نسيت كلمة السر؟</u></string>
+    <string name="are_you_new_user_create_account_title">هل أنت مستخدم جديد ؟</string>
+    <string name="create_account_title"><u>إنشاء حساب </u></string>
+    <string name="checkInput">فضلاً أدخل البيانات الناقصة</string>
+    <string name="please_try_again_later">برجاء المحاولة مرة أخري</string>
+    <string name="sex_title">النوع</string>
+    <string name="save_title">حفظ</string>
+    <string name="nationality_title">الجنسية</string>
+    <string name="country_title">الدولة</string>
+
+
+    <string name="first_name_title"> الاسم الأول</string>
+    <string name="second_name_title"> الاسم الثاني</string>
+    <string name="email_title"> البريد الإلكتروني</string>
+    <string name="confirm_password_title">تأكيد كلمة المرور</string>
+    <string name="accept_terms_and_conditions_title"><u>الموافقة علي الشروط و الأحكام</u></string>
+    <string name="do_u_have_account_title">هل لديك حساب بالفعل ؟</string>
+
+    <string name="male_title">ذكر</string>
+    <string name="female_title">أنثى</string>
+    <string name="register"><u>تسجيل الدخول</u></string>
+    <string name="empty_field">من فضلم</string>
+    <string name="create_account_title_">إنشاء حساب</string>
+    <string name="accpt_terms_title">يجب أن توافق على الشروط والأحكام السياسيه</string>
+
+    <string name="done_sending_verification_code_title">تم إرسال رمز  التأكيد بنجاح</string>
+    <string name="wrong_phone_or_password">خطأ في كلمة السر  أو رقم الهاتف !</string>
+    <string name="shortPassword">يجب أن يكون طول كلمة المرور على الأقل 8 حروفٍ</string>
+    <string name="not_same_password">حقل التأكيد غير مُطابق للحقل كلمة المرور</string>
+
+</resources>

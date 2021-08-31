@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="4dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="1dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_product"
+                android:layout_width="0dp"
+                android:layout_height="95dp"
+                android:tint="@color/blackTint"
+                android:src="@drawable/food"
+                android:scaleType="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_dots"
+                android:padding="5dp"
+                android:id="@+id/iv_favourite"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="5dp"
+                />
+
+<!--            <ImageView-->
+<!--                android:layout_width="15dp"-->
+<!--                android:layout_height="15dp"-->
+<!--                tools:src="@color/colorWhite"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:id="@+id/iv_vendor"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/iv_product"-->
+<!--                />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/iv_product"
+                android:text="ahmed ibrahim"
+                android:fontFamily="@font/din_arabic_light"
+                android:id="@+id/tv_vendor_name"
+                android:textColor="@color/colorWhite"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="10sp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 real"
+                android:drawableStart="@drawable/ic_price_tag"
+                android:layout_margin="5dp"
+                android:textSize="10sp"
+                android:drawablePadding="5dp"
+                android:id="@+id/tv_price_product"
+                android:textColor="@color/titleBlack"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="@id/iv_product"
+                app:layout_constraintTop_toBottomOf="@id/iv_product" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 real"
+                android:drawableStart="@drawable/ic_weight"
+                android:layout_margin="5dp"
+                android:textSize="10sp"
+                android:id="@+id/tv_weight"
+                android:drawablePadding="5dp"
+                android:textColor="@color/titleBlack"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_price_product"
+                app:layout_constraintTop_toBottomOf="@id/iv_product"
+
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_weight"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/btn_add_cart_details"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:id="@+id/view"
+                        android:background="@color/colorBlue184"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tasbet"
+                        android:layout_marginStart="10dp"
+                        android:textSize="10sp"
+                        app:layout_constraintHorizontal_weight="1"
+app:layout_constraintEnd_toStartOf="@id/tv_disappear"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/black41"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:padding="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/tv_tasbet"
+                        android:drawableStart="@drawable/ic_not_sabet"
+                        />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/disappear"
+                        android:id="@+id/tv_disappear"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_marginEnd="5dp"
+                        android:drawablePadding="5dp"
+                        app:layout_constraintStart_toEndOf="@id/tv_tasbet"
+                        android:drawableStart="@drawable/ic_gray_eye"
+                        android:textColor="@color/black41"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_tasbet"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

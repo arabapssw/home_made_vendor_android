@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sign_in.SignInFragment">
+
+
+    <CheckBox
+        android:id="@+id/ch_remember"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:buttonTint="@color/teaBlue"
+        android:textSize="10sp"
+        android:visibility="gone"
+        android:text="@string/remember_me_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/custom_password"
+        app:layout_constraintTop_toBottomOf="@id/custom_password"
+        tools:ignore="SmallSp" />
+
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="166dp"
+        android:layout_height="167.24dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo_with_welcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/tv_forget"
+        android:textSize="12sp"
+        android:visibility="visible"
+        android:text="@string/forget_password_title"
+        android:textColor="@color/teaBlue"
+        app:layout_constraintStart_toStartOf="@id/btn_signIn"
+        app:layout_constraintTop_toBottomOf="@id/btn_signIn" />
+
+    <Button
+        android:id="@+id/btn_signIn"
+        android:text="@string/sign_in_title"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/custom_password"
+        app:layout_constraintStart_toStartOf="@id/custom_password"
+        app:layout_constraintTop_toBottomOf="@id/custom_password"
+        style="@style/btnStyle" />
+
+    <com.test.utils.custom.CustomTitleEditBox
+        android:id="@+id/custom_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:inputType="textPassword"
+        android:text="@string/password_title"
+        app:isPassword="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_telephone" />
+
+    <com.test.utils.custom.CustomTelephone
+        android:id="@+id/custom_telephone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:inputType="phone"
+        android:maxLength="15"
+        android:text="@string/telephone_number_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ques"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/brownishGray"
+        android:textSize="12sp"
+        android:text="@string/are_you_new_user_create_account_title"
+        app:layout_constraintStart_toEndOf="@id/tv_forget"
+        app:layout_constraintTop_toBottomOf="@id/tv_forget"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/create_account_title"
+        android:id="@+id/btnCreateAccount"
+        android:textColor="@color/teaBlue"
+        android:layout_marginStart="5dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_ques"
+        app:layout_constraintTop_toTopOf="@id/tv_ques"
+        app:layout_constraintBottom_toBottomOf="@id/tv_ques"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

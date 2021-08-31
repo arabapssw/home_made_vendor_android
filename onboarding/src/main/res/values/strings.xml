@@ -1,0 +1,9 @@
+<resources>
+    <string name="first_onboardingtitle">Welcome to Shogl Beet</string>
+    <string name="second_onboardingtitle">Welcome to Shogl Beet</string>
+    <string name="third_onboardingtitle">Welcome to Shogl Beet</string>
+    <string name="next_title">next</string>
+    <string name="skip_title">Skip</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
