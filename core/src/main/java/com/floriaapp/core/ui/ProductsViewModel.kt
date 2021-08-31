@@ -11,12 +11,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.floriaapp.core.Extensions.launchDataLoad
 import com.floriaapp.core.Extensions.toErrorBody
-import com.floriaapp.core.api.categoryApi
+import com.floriaapp.core.api.productsApi
 import com.floriaapp.core.data.data_source.category_paging.ProductsDataSource
-import com.floriaapp.core.data.data_source.category_paging.QuestionsProductDataSource
-import com.floriaapp.core.data.data_source.category_paging.RatingDataSource
 import com.floriaapp.core.data.data_source.category_paging.TagProductDataSource
-import com.floriaapp.core.domain.model.FilterData
 import com.floriaapp.core.domain.model.category.CategoriesResponse
 import com.floriaapp.core.domain.model.category.categoryProductItem
 import com.floriaapp.core.domain.model.orderSuccess.Data
@@ -24,12 +21,11 @@ import com.floriaapp.core.domain.model.orderSuccess.Meta
 import com.floriaapp.core.domain.model.orderSuccess.OrderSuccess
 import com.floriaapp.core.domain.model.product.ProductDetailsResponse
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
-import com.floriaapp.core.domain.model.questions.ProductQuestionItem
-import com.floriaapp.core.domain.model.rating.RatingDataItem
+import com.floriaapp.core.domain.model.success.SuccessMessage
 import com.floriaapp.core.domain.model.tagItems.TagsProducts
 import kotlinx.coroutines.flow.Flow
 
-class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
+class ProductsViewModel(var productsApi: productsApi) : ViewModel() {
 
     var _CategoriesData = MutableLiveData<CategoriesResponse>()
     var CategoriesData: LiveData<CategoriesResponse> = _CategoriesData
@@ -40,8 +36,8 @@ class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
     private var _TagProducts = MutableLiveData<TagsProducts>()
     var tagsProducts: LiveData<TagsProducts> = _TagProducts
 
-    var _FavouriteResponse = MutableLiveData<OrderSuccess>()
-    var FavouriteResponse: LiveData<OrderSuccess> = _FavouriteResponse
+    var _SuccessMessage = MutableLiveData<SuccessMessage>()
+    var SuccessMessage: LiveData<SuccessMessage> = _SuccessMessage
 
 
     var _SendQuestionResponse = MutableLiveData<OrderSuccess>()
@@ -53,7 +49,7 @@ class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
 
     fun getCategories() {
         launchDataLoad(execution = {
-            _CategoriesData.postValue(categoryApi.getCategories())
+            _CategoriesData.postValue(productsApi.getCategories())
         }, errorReturned = {
             Log.e("error", it.message.toString())
             //_Error.postValue(it.toErrorBody())
@@ -62,7 +58,7 @@ class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
 
     fun getProductDetails(productId: Int) {
         launchDataLoad(execution = {
-            _ProductDetails.postValue(categoryApi.getProductDetails(productId))
+            _ProductDetails.postValue(productsApi.getProductDetails(productId))
         }, errorReturned = {
             Log.e("error", it.message.toString())
             //_Error.postValue(it.toErrorBody())
@@ -73,7 +69,7 @@ class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
     fun submitQuestions(productId: Int, questionAr: String) {
         launchDataLoad(execution = {
             _SendQuestionResponse.postValue(
-                categoryApi.submitProuctQuestions(
+                productsApi.submitProuctQuestions(
                     productId = productId,
                     questionAr = questionAr
                 )
@@ -87,34 +83,33 @@ class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
 
     fun getCategoryProducts(categoryId: Int): Flow<PagingData<ProviderProductsResponseItem>> {
         return Pager(PagingConfig(pageSize = 5)) {
-            ProductsDataSource(categoryId, categoryApi, 1)
+            ProductsDataSource(categoryId, productsApi, 1)
         }.flow.cachedIn(viewModelScope)
     }
 
 
     fun getAllProducts(): Flow<PagingData<ProviderProductsResponseItem>> {
         return Pager(PagingConfig(pageSize = 5)) {
-            ProductsDataSource(categoryApi = categoryApi, typeOfApi = 2)
+            ProductsDataSource(productsApi = productsApi, typeOfApi = 2)
         }.flow.cachedIn(viewModelScope)
     }
 
     fun getFeaturedProducts(): Flow<PagingData<ProviderProductsResponseItem>> {
         return Pager(PagingConfig(pageSize = 5)) {
-            ProductsDataSource(categoryApi = categoryApi, typeOfApi = 3)
+            ProductsDataSource(productsApi = productsApi, typeOfApi = 3)
         }.flow.cachedIn(viewModelScope)
     }
 
 
-
-    fun getTagProducts(tagId:Int): Flow<PagingData<categoryProductItem>> {
+    fun getTagProducts(tagId: Int): Flow<PagingData<categoryProductItem>> {
         return Pager(PagingConfig(pageSize = 2)) {
-            TagProductDataSource(categoryApi = categoryApi,tagId = tagId)
+            TagProductDataSource(productsApi = productsApi, tagId = tagId)
         }.flow.cachedIn(viewModelScope)
     }
 
     fun getTagProductsNormal(tagId: Int) {
         launchDataLoad(execution = {
-            _TagProducts.postValue(categoryApi.getTagProducts(tagId))
+            _TagProducts.postValue(productsApi.getTagProducts(tagId))
         }, errorReturned = {
             Log.e("error", it.message.toString())
             _Error.postValue(it.toErrorBody())
@@ -122,44 +117,13 @@ class ProductsViewModel(var categoryApi: categoryApi) : ViewModel() {
     }
 
 
-//    fun getFavoriteProducts(): Flow<PagingData<categoryProductItem>> {
-//        return Pager(PagingConfig(pageSize = 5)) {
-//            ProductsDataSource(categoryApi = categoryApi, typeOfApi = 4)
-//        }.flow.cachedIn(viewModelScope)
-//    }
-//
-//    fun searchForProducts(searchWord: String): Flow<PagingData<categoryProductItem>> {
-//        return Pager(PagingConfig(pageSize = 5)) {
-//            ProductsDataSource(categoryApi = categoryApi, typeOfApi = 5, searchWord = searchWord)
-//        }.flow.cachedIn(viewModelScope)
-//    }
-
-//    fun filterProducts(filter: FilterData): Flow<PagingData<categoryProductItem>> {
-//        return Pager(PagingConfig(pageSize = 5)) {
-//            ProductsDataSource(categoryApi = categoryApi, typeOfApi = 6, filterData = filter)
-//        }.flow.cachedIn(viewModelScope)
-//    }
-//
-//    fun getProductsQuestions(): Flow<PagingData<ProductQuestionItem>> {
-//        return Pager(PagingConfig(pageSize = 5)) {
-//            QuestionsProductDataSource(categoryApi = categoryApi)
-//        }.flow.cachedIn(viewModelScope)
-//    }
-
-    fun getRatings(): Flow<PagingData<RatingDataItem>> {
-        return Pager(PagingConfig(pageSize = 5)) {
-            RatingDataSource(categoryApi = categoryApi)
-        }.flow.cachedIn(viewModelScope)
-
-    }
-
-    fun favouriteAction(productId: Int, typeOfFav: Int) {
+    fun toggleProductPinnedOrStatus(productId: Int, typeOfFav: Int) {
         launchDataLoad(execution = {
 
-            _FavouriteResponse.value = when (typeOfFav) {
-                1 -> categoryApi.addToFavourites(productId)
-                2 -> categoryApi.deleteFromFavourites(productId)
-                else -> OrderSuccess(data = Data("test", meta = Meta(0)))
+            _SuccessMessage.value = when (typeOfFav) {
+                1 -> productsApi.toggleProductStatus(productId)
+                2 -> productsApi.togglePinnedProduct(productId)
+                else -> null
             }
         }, errorReturned = {
             Log.e("error", it.message.toString())

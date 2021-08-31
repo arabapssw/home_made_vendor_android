@@ -2,11 +2,11 @@ package com.floriaapp.core.data.data_source.category_paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.floriaapp.core.api.categoryApi
+import com.floriaapp.core.api.productsApi
 import com.floriaapp.core.domain.model.provider_.orders.OrderListResponseItem
 import com.floriaapp.core.domain.model.provider_.orders.OrdersListResponse
 
-class OrdersDataSource( val checkout: categoryApi,val statusOfOrder:Int) : PagingSource<Int, OrderListResponseItem>() {
+class OrdersDataSource(val checkout: productsApi, val statusOfOrder:Int) : PagingSource<Int, OrderListResponseItem>() {
 
     lateinit var orderProducts: OrdersListResponse
 

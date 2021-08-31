@@ -5,5 +5,7 @@
     <string name="all_products_title">جميع المنتجات</string>
     <string name="disappear">إخفاء</string>
     <string name="tasbet">تثبيت</string>
+    <string name="stable" >مثبت</string>
+    <string name="disappeard">مخفي</string>
 
 </resources>

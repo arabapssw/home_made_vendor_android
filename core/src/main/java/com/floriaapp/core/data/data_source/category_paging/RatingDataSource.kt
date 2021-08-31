@@ -2,15 +2,13 @@ package com.floriaapp.core.data.data_source.category_paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.floriaapp.core.api.categoryApi
-import com.floriaapp.core.domain.model.questions.ProductQuestionItem
-import com.floriaapp.core.domain.model.questions.ProductQuestions
+import com.floriaapp.core.api.productsApi
 import com.floriaapp.core.domain.model.rating.RatingData
 import com.floriaapp.core.domain.model.rating.RatingDataItem
 
 
 class RatingDataSource(
-    val categoryApi: categoryApi
+    val productsApi: productsApi
 ) : PagingSource<Int, RatingDataItem>() {
 
     lateinit var categoryProducts: RatingData
@@ -18,7 +16,7 @@ class RatingDataSource(
 
         try {
             val currentLoadingPageKey = params.key ?: 1
-            categoryProducts = categoryApi.getRatings(currentLoadingPageKey)
+            categoryProducts = productsApi.getRatings(currentLoadingPageKey)
             val response = categoryProducts
             val responseData = mutableListOf<RatingDataItem>()
             val data = response.data

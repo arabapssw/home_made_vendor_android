@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingData
@@ -30,7 +31,6 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
 
     lateinit var binding: FragmentProductsBinding
     private val productsViewModel: ProductsViewModel by viewModel()
-//    private val cartViewModel: CartViewModel by viewModel()
 
 
     override fun onCreateView(
@@ -48,44 +48,6 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
 
 
         initAdapter()
-
-
-//        binding.navIcon.setOnClickListener {
-//            communication.openDrawer()
-//        }
-//        binding.customSearch.filterIcon.setOnClickListener {
-//            NavigationUtils.goToDestination2(requireContext(), FilterActivity::class.java)
-//        }
-//        binding.customSearch.editText.isFocusable = false
-//        binding.customSearch.editText.keyListener = null
-//
-//        binding.customSearch.editText.setOnClickListener {
-//
-//            val intent = Intent(requireActivity(), SearchActivity::class.java)
-//            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                requireActivity(),
-//                binding.customSearch.editText,
-//                "edit"
-//            )
-//            startActivity(intent, options.toBundle())
-//        }
-
-
-//        cartViewModel.CartMethods.observe(viewLifecycleOwner, Observer {
-//            //launchProducts()
-//            dismissProgressDialog()
-//            it.cartCount?.let {
-//                (requireActivity() as BaseActivity).getSharedPrefrenceEdit()
-//                    .putInt(CART_COUNTER, it).commit()
-//            }
-//            communication.invokeCartCounter()
-//            showSuccessDialog {
-//                communication.goToCartTab()
-//            }
-//
-//
-//        })
-
         allProductsAdapter.addLoadStateListener { loadState ->
 
             // getting the error
@@ -95,63 +57,38 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
                 loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
                 else -> null
             }
+
+            when(loadState.append is LoadState.Loading) {
+               true -> showProgress()
+                false-> dismissProgressDialog()
+            }
             error.let {
               //  Toast.makeText(requireContext(), it?.error.toString(), Toast.LENGTH_LONG).show()
             }
         }
-//        cartViewModel.Error.observe(viewLifecycleOwner, Observer {
-//            dismissProgressDialog()
-//            if (it== resources.getString(com.test.utils.R.string.unauthenticated_string)){
-//                showAuthenticationDialog(function = {
-//                    NavigationUtils.goToDestinationWithClearTasks(requireContext(), Class.forName(
-//                        LOGIN_CLASS_NAME
-//                    ))
-//                })
-//            }else showErrorDialog(it)
-//        })
 
 
-//        categoryViewModel.FavouriteResponse.observe(this, Observer {
-//            //  showToast(it.data.message)
-//            showSuccessFavouriteMessage(it.data.message)
-//        })
-
+        productsViewModel.SuccessMessage.observe(viewLifecycleOwner, Observer {
+            dismissProgressDialog()
+            launchProducts()
+        })
     }
 
     private fun launchProducts() {
         with(lifecycleScope) {
             allProductsAdapter.submitData(lifecycle, PagingData.empty())
-
-//            if (filterData.isFilterd == true) {
-//                Log.i("data", FilterClass.filterData.toString())
-//                launch {
-//                    categoryViewModel.filterProducts(filter = FilterData(filterData.min_price,
-//                        filterData.max_price, filterData.categoriesList)).collect() {
-//                         allProductsAdapter.submitData(it)
-//                       // Log.i("data", it.toString())
-//
-//
-//                    }
-//                }
-//            } else {
                 launch {
                     productsViewModel.getAllProducts().collect() {
                         Log.i("data", it.toString())
                         allProductsAdapter.submitData(it)
                     }
                 }
-      //      }
-
-
-           // allProductsAdapter.notifyDataSetChanged()
         }
     }
 
     private fun initAdapter() {
         binding.rvAllProducts.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvAllProducts.adapter = allProductsAdapter
-
-
     }
 
     override fun onResume() {
@@ -159,21 +96,6 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
         launchProducts()
     }
 
-//    override fun onItemClicked(position: Int, item: categoryProductItem) {
-//
-//        communication.goToProductDetails(item.id)
-//
-//    }
-//
-//    override fun addToCartClicked(position: Int, item: categoryProductItem) {
-//        showProgress()
-//        cartViewModel.addToCart(item.id, 1)
-//
-//    }
-//
-//    override fun favoriteFunction(position: Int, item: categoryProductItem, typeOfFavourite: Int) {
-//        categoryViewModel.favouriteAction(item.id, typeOfFavourite)
-//    }
 
 
     override fun onAttach(context: Context) {
@@ -181,14 +103,14 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
         communication = context as Communication
     }
 
-    override fun onItemClicked(position: Int, item: ProviderProductsResponseItem) {
-
+    override fun onItemClicked(
+        position: Int,
+        item: ProviderProductsResponseItem,
+        typeChoosen: Int
+    ) {
+        showProgress()
+        productsViewModel.toggleProductPinnedOrStatus(item.id,typeChoosen)
     }
 
-    override fun addToCartClicked(position: Int, item: ProviderProductsResponseItem) {
-    }
-
-    override fun favoriteFunction(position: Int, item: ProviderProductsResponseItem, typeOfFavourite: Int) {
-    }
 
 }

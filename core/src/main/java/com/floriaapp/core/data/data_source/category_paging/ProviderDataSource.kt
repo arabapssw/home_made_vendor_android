@@ -3,8 +3,6 @@ package com.floriaapp.core.data.data_source.category_paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.floriaapp.core.api.cartApi
-import com.floriaapp.core.api.categoryApi
-import com.floriaapp.core.domain.model.category.CategoryProducts
 import com.floriaapp.core.domain.model.category.categoryProductItem
 import com.floriaapp.core.domain.model.provider.ProviderDetailsResponse
 

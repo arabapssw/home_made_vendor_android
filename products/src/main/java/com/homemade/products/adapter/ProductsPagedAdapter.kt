@@ -1,7 +1,6 @@
 package com.homemade.products.adapter
 
 
-
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -14,35 +13,50 @@ import androidx.recyclerview.widget.RecyclerView
 import com.floriaapp.core.domain.model.category.categoryProductItem
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 import com.homemade.products.R
+import com.test.utils.ACTIVE
 import com.test.utils.Extensions.getScreenWidth
+import com.test.utils.INACTIVE
+import com.test.utils.PRODUCT_PIN
+import com.test.utils.PRODUCT_STATUS
 
 
 class ProductsPagedAdapter(
     private val interaction: OnItemClickOfProduct? = null,
     private var isFeatured: Boolean? = false
 ) :
-    PagingDataAdapter<ProviderProductsResponseItem, ProductsPagedAdapter.ViewHolder>(DataDifferntiator) {
+    PagingDataAdapter<ProviderProductsResponseItem, ProductsPagedAdapter.ViewHolder>(
+        DataDifferntiator
+    ) {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-//        if (isFeatured == true) holder.itemView.layoutParams.width =
-//            (holder.itemView.context.getScreenWidth(holder.itemView.context) / 3) /// THIS LINE WILL DIVIDE OUR VIEW INTO NUMBERS OF PARTS
-
         with(holder.itemView) {
             val data = getItem(position)
             findViewById<TextView>(R.id.tv_vendor_name).text = data?.nameAr
-            findViewById<TextView>(R.id.tv_price_product).text = data?.price.toString() +  " " +resources.getString(R.string.egp)
+            findViewById<TextView>(R.id.tv_price_product).text =
+                data?.price.toString() + " " + resources.getString(R.string.egp)
             findViewById<TextView>(R.id.tv_weight).text = data?.weight.toString()
 
-//            tv_add_cart_title.typeface = typeface
-//            tv_name.text = "${getItem(position)?.name}"
-//            tv_price.text = "${getItem(position)?.price} ${resources.getString(R.string.egp)}"
-//            tv_vendor_name.text = getItem(position)?.provider?.name
-//            getItem(position)?.image?.let { iv_product.loadImage(it) }
-//            getItem(position)?.provider?.logo?.let { iv_vendor.loadImage(it) }
+            findViewById<TextView>(R.id.tv_disappear).setOnClickListener {
+                interaction?.onItemClicked(position,data!!,PRODUCT_STATUS)
+            }
+
+            findViewById<TextView>(R.id.tv_tasbet).setOnClickListener {
+                interaction?.onItemClicked(position,data!!, PRODUCT_PIN)
+            }
+
+            when (data?.active) {
+                ACTIVE -> setActiveStatus()
+                INACTIVE -> setInActiveStatus()
+            }
+            when (data?.pinned) {
+                ACTIVE -> setActivePinned()
+                INACTIVE ->setInActivePinned()
+            }
+
 //            if (getItem(position) !=null) {
 //                btn_add_cart_details.setOnClickListener {
 //                    getItem(position)?.let { it1 -> interaction?.addToCartClicked(position, it1) }
@@ -80,45 +94,55 @@ class ProductsPagedAdapter(
 //                }
 //            }
 //
-//            if (getItem(position)?.inCart == true) {
-//                closeAddToCartButton()
-//            } else {
-//                openAddToCartButton()
-//            }
-//
-//            if (getItem(position)?.isFavorited == true) {
-//                colorizeFAvouriteBtn()
-//            } else {
-//                disColorizeFAvouriteBtn()
-//            }
+
 
         }
 
 
     }
 
-//    private fun View.closeAddToCartButton() {
-//        btn_add_cart_details.isClickable = false
-//        btn_add_cart_details.backgroundTintList =
-//            ColorStateList.valueOf(resources.getColor(R.color.gray))
-//        setBackgroundColor(resources.getColor(R.color.blue_color))
-//    }
-//
-//    private fun View.colorizeFAvouriteBtn() {
-//        iv_favourite.imageTintList = ColorStateList.valueOf(resources.getColor(R.color.teaBlue))
-//    }
-//
-//    private fun View.disColorizeFAvouriteBtn() {
-//        iv_favourite.imageTintList = ColorStateList.valueOf(resources.getColor(R.color.colorWhite))
-//    }
-//
-//
-//    private fun View.openAddToCartButton() {
-//        btn_add_cart_details.isClickable = true
-//        btn_add_cart_details.backgroundTintList =
-//            ColorStateList.valueOf(resources.getColor(R.color.teaBlue))
-//        setBackgroundColor(resources.getColor(R.color.colorWhite))
-//    }
+    private fun View.setActivePinned() {
+        findViewById<TextView>(R.id.tv_tasbet).text = resources.getString(R.string.stable)
+        findViewById<TextView>(R.id.tv_tasbet).setTextColor(resources.getColor(R.color.teaBlue))
+        findViewById<TextView>(R.id.tv_tasbet).setCompoundDrawablesRelativeWithIntrinsicBounds(
+            R.drawable.ic_sabet,
+            0,
+            0,
+            0
+        )
+    }
+    private fun View.setActiveStatus() {
+        findViewById<TextView>(R.id.tv_disappear).text = resources.getString(R.string.disappeard)
+        findViewById<TextView>(R.id.tv_disappear).setTextColor(resources.getColor(R.color.teaBlue))
+        findViewById<TextView>(R.id.tv_disappear).setCompoundDrawablesRelativeWithIntrinsicBounds(
+            R.drawable.ic_icon_eye,
+            0,
+            0,
+            0
+        )
+    }
+
+    private fun View.setInActiveStatus() {
+        findViewById<TextView>(R.id.tv_disappear).text = resources.getString(R.string.disappear)
+        findViewById<TextView>(R.id.tv_disappear).setTextColor(resources.getColor(R.color.black41))
+        findViewById<TextView>(R.id.tv_disappear).setCompoundDrawablesRelativeWithIntrinsicBounds(
+            R.drawable.ic_gray_eye,
+            0,
+            0,
+            0
+        )
+    }
+    private fun View.setInActivePinned() {
+        findViewById<TextView>(R.id.tv_tasbet).text = resources.getString(R.string.tasbet)
+        findViewById<TextView>(R.id.tv_tasbet).setTextColor(resources.getColor(R.color.black41))
+        findViewById<TextView>(R.id.tv_tasbet).setCompoundDrawablesRelativeWithIntrinsicBounds(
+            R.drawable.ic_not_sabet,
+            0,
+            0,
+            0
+        )
+    }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -149,9 +173,7 @@ class ProductsPagedAdapter(
     }
 
     interface OnItemClickOfProduct {
-        fun onItemClicked(position: Int, item: ProviderProductsResponseItem)
-        fun addToCartClicked(position: Int, item: ProviderProductsResponseItem)
-        fun favoriteFunction(position: Int, item: ProviderProductsResponseItem, typeOfFavourite: Int)
+        fun onItemClicked(position: Int, item: ProviderProductsResponseItem,typeChoosen:Int)
 
     }
 

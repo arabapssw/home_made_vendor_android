@@ -14,7 +14,7 @@ import com.floriaapp.core.domain.model.tagItems.TageItemResponse
 import com.floriaapp.core.domain.model.tagItems.TagsProducts
 import retrofit2.http.*
 
-interface categoryApi {
+interface productsApi {
 
     @GET("/api/v1/categories")
     suspend fun getCategories(): CategoriesResponse
@@ -87,6 +87,11 @@ interface categoryApi {
     @GET("/api/v1/provider/orders/{orderId}")
     suspend fun getOrderDetails(@Path("orderId") orderId: Int): OrderDetailsVendorResponse
 
+    @POST("/api/v1/provider/toggle-product-status/{productId}")
+    suspend fun toggleProductStatus(@Path("productId") productId: Int): SuccessMessage
+
+    @POST("/api/v1/provider/toggle-pinned-product/{productId}")
+    suspend fun togglePinnedProduct(@Path("productId") productId: Int): SuccessMessage
 
     @PUT("/api/v1/provider/orders/{order_id}")
     @FormUrlEncoded

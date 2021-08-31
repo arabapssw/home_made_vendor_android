@@ -13,7 +13,7 @@ android {
     defaultConfig {
         ndkVersion  = AndroidSdk.NDKVERSION
 
-        applicationId("com.homemade.user")
+        applicationId("com.homemade.vendor")
         minSdkVersion(AndroidSdk.min)
         targetSdkVersion(AndroidSdk.target)
         versionCode(1)

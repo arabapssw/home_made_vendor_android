@@ -26,6 +26,12 @@ const val QUESTION_PRODUCTS = "question_products"
 
 const val FAVOURITES = 1
 const val UNFAVOURITES = 2
+const val ACTIVE=1
+const val INACTIVE=0
+const val PINNED=1
+const val UNPINNED=0
+const val PRODUCT_STATUS= 1
+const val PRODUCT_PIN = 2
 
 const val VERIFY_NEW_USER = 1
 const val VERIFY_CHANGE_PASSWORD = 2

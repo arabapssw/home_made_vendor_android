@@ -11,7 +11,7 @@ import androidx.paging.cachedIn
 import com.floriaapp.core.Extensions.SingleLiveEvent
 import com.floriaapp.core.Extensions.launchDataLoad
 import com.floriaapp.core.Extensions.toErrorBody
-import com.floriaapp.core.api.categoryApi
+import com.floriaapp.core.api.productsApi
 import com.floriaapp.core.data.data_source.category_paging.OrdersDataSource
 import com.floriaapp.core.domain.model.Error.ErrorResponse
 import com.floriaapp.core.domain.model.checkout.address.AddressBody
@@ -19,16 +19,14 @@ import com.floriaapp.core.domain.model.checkout.order.order_details.OrderDetails
 import com.floriaapp.core.domain.model.checkout.shipping.AddressesResponse
 import com.floriaapp.core.domain.model.checkout.shipping.ShippingCompaniesResponse
 import com.floriaapp.core.domain.model.checkout.shipping.new.ShippinCostNeeded
-import com.floriaapp.core.domain.model.orderSuccess.OrderSuccess
 import com.floriaapp.core.domain.model.provider_.order_details.OrderDetailsVendorResponse
 import com.floriaapp.core.domain.model.provider_.orders.OrderListResponseItem
-import com.floriaapp.core.domain.model.provider_.orders.OrdersListResponse
 import com.floriaapp.core.domain.model.success.SuccessMessage
 import com.floriaapp.core.domain.model.summary.SummaryOrderResponse
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MultipartBody
 
-class OrderViewModel(var categoryApi: categoryApi) : ViewModel() {
+class OrderViewModel(var productsApi: productsApi) : ViewModel() {
 
     var _PaymentOption = MutableLiveData<ShippingCompaniesResponse>()
     var PaymentOption: LiveData<ShippingCompaniesResponse> = _PaymentOption
@@ -226,7 +224,7 @@ class OrderViewModel(var categoryApi: categoryApi) : ViewModel() {
 
     fun changeOrderStatus(orderId:Int,orderStatus:Int) {
         launchDataLoad(execution = {
-            _SuccessOrderDone.postValue(categoryApi.changeOrderStatus(orderId,orderStatus))
+            _SuccessOrderDone.postValue(productsApi.changeOrderStatus(orderId,orderStatus))
         }, errorReturned = {
             _Error.postValue(it.toErrorBody())
         })
@@ -235,7 +233,7 @@ class OrderViewModel(var categoryApi: categoryApi) : ViewModel() {
 
     fun getOrderDetails(orderId:Int) {
         launchDataLoad(execution = {
-            _OrdersList.postValue(categoryApi.getOrderDetails(orderId))
+            _OrdersList.postValue(productsApi.getOrderDetails(orderId))
         }, errorReturned = {
             _Error.postValue(it.toErrorBody())
         })
@@ -248,7 +246,7 @@ class OrderViewModel(var categoryApi: categoryApi) : ViewModel() {
 
     fun getOrdersLists(statusOfOrder: Int): Flow<PagingData<OrderListResponseItem>> {
         return Pager(PagingConfig(pageSize = 5)) {
-            OrdersDataSource(categoryApi, statusOfOrder)
+            OrdersDataSource(productsApi, statusOfOrder)
         }.flow.cachedIn(viewModelScope)
     }
 

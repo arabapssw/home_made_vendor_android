@@ -2,14 +2,14 @@ package com.floriaapp.core.data.data_source.category_paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.floriaapp.core.api.categoryApi
+import com.floriaapp.core.api.productsApi
 import com.floriaapp.core.domain.model.FilterData
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponse
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 
 class ProductsDataSource(
     val categoryId: Int? = null,
-    val categoryApi: categoryApi,
+    val productsApi: productsApi,
     val typeOfApi: Int,
     var searchWord: String? = null,
     var filterData: FilterData? = null
@@ -20,7 +20,7 @@ class ProductsDataSource(
 
         try {
             val currentLoadingPageKey = params.key ?: 1
-            providerProducts = categoryApi.getAllProducts(currentLoadingPageKey)
+            providerProducts = productsApi.getAllProducts(currentLoadingPageKey)
 //            providerProducts = when (typeOfApi) {
 //                1 -> categoryApi.getCategoryProducts(categoryId, currentLoadingPageKey)
 //                2 -> categoryApi.getAllProducts(currentLoadingPageKey)
