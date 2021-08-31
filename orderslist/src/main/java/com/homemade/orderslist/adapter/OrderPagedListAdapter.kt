@@ -27,7 +27,7 @@ class OrderPagedListAdapter(private val interaction: OnItemClickOfProduct? = nul
             setOnClickListener {
                 interaction?.onItemClicked(position, data)
             }
-            tv_ordeR_number.text = "#${data?.orderId.toString()}"
+            tv_ordeR_number.text = "#${data?.id.toString()}"
             tv_order_date.text = data?.createdAt?.time + " " + data?.createdAt?.date
             tv_user_name.text = data?.user?.firstName + " " + data?.user?.lastName
             total_cost.text = data?.total.toString() + " " + resources.getString(R.string.egp)

@@ -26,7 +26,7 @@ class CustomOrderNeeded(context: Context, attrs: AttributeSet) : ConstraintLayou
         findViewById<TextView>(R.id.order_number).text =
             "${data.user.firstName} ${data.user.lastName} "
         findViewById<TextView>(R.id.order_date).text =
-            "${data.createdAt.date} ${data.createdAt.time} "
+            "${data.requiredAt.date} ${data.requiredAt.time} "
         findViewById<TextView>(R.id.order_location).text = "${data.address.country.name}  "
         findViewById<TextView>(R.id.order_telephone).text = "${data.user.phone}  "
         findViewById<TextView>(R.id.order_location2).text = "${data.address.formattedAddress}  "
