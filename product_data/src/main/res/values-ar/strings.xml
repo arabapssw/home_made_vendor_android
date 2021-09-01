@@ -8,5 +8,13 @@
     <string name="price_product">سعر المنتج</string>
     <string name="quantity_product">كمية المنتج</string>
     <string name="delivery_in_seller_location_only">التوصيل بمدينة البائع فقط</string>
+    <string name="sku_title">رمز التخزين</string>
+    <string name="discount_product">الخصم على المنتج</string>
+    <string name="begin_discount">بداية التخفيض</string>
+    <string name="end_discount" >نهاية التخفيض</string>
+    <string name="questions_on_product">أسئلة عن المنتج</string>
+    <string name="add_another_question">إضافة سؤال آخر</string>
+    <string name="add">إضافة</string>
+    <string name="cancel">إلغاء</string>
 
 </resources>

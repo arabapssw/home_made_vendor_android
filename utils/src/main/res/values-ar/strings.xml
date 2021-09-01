@@ -156,4 +156,5 @@
     <string name="ready_done">مستلمة </string>
     <string name="no_notes">لا يوجد ملاحظات على العنوان </string>
     <string name="add_photo">أضف صوره للمنتج (png,jpeg)</string>
+    <string name="product_status">حالة المنتج</string>
 </resources>

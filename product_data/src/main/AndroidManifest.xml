@@ -3,7 +3,8 @@
     package="com.homemade.product_data">
 
     <application>
-        <activity android:name=".AddProductFirstStepActivity"></activity>
+        <activity android:name=".AddProductSecondStepActivity"></activity>
+        <activity android:name=".AddProductFirstStepActivity" />
     </application>
 
 </manifest>

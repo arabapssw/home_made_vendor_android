@@ -51,7 +51,7 @@
 
     <com.test.utils.custom.CustomSpinner
         android:layout_width="0dp"
-        android:id="@+id/spinner_types"
+        android:id="@+id/spinner_tags"
         android:layout_marginTop="15dp"
 
         android:layout_height="wrap_content"
@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         android:textSize="10sp"
         android:id="@+id/checkbox_delivery"
-        app:layout_constraintStart_toStartOf="@id/spinner_types"
-        app:layout_constraintTop_toBottomOf="@id/spinner_types"
+        app:layout_constraintStart_toStartOf="@id/spinner_tags"
+        app:layout_constraintTop_toBottomOf="@id/spinner_tags"
         android:text="@string/delivery_in_seller_location_only"
         android:buttonTint="@color/teaBlue"
         />
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/checkbox_delivery"
         app:layout_constraintTop_toBottomOf="@id/checkbox_delivery"
-        app:layout_constraintEnd_toEndOf="@id/spinner_types"
+        app:layout_constraintEnd_toEndOf="@id/spinner_tags"
         />
 
     <com.test.utils.custom.CustomTitleEditBox
