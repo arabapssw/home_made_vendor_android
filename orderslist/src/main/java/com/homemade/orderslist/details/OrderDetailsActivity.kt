@@ -33,7 +33,7 @@ class OrderDetailsActivity : BaseActivity() {
         showProgress()
         orderViewModel.getOrderDetails(ordrId!!)
         orderViewModel.OrdersList.observe(this, Observer { dataOrder ->
-            binding.toolbar.setTitleText("#${dataOrder.data.orderId}")
+            binding.toolbar.setTitleText("#${dataOrder.data.id}")
             val list = mutableListOf<Product>()
             list.add(Product(1, "", "", 1, 1, 1))
             list.addAll(dataOrder.data.products)
