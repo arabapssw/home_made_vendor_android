@@ -64,7 +64,7 @@ class HomeActivity : BaseActivity(), Communication, LanguagesAdapter.OnItemClick
         val navController = findNavController(R.id.nav_host_fragment)
         bottomNavigationView.setupWithNavController(navController)
 
-        bottomNavigationView.selectedItemId = R.id.ordersListFragment
+        bottomNavigationView.selectedItemId = R.id.homeFragment
 
 
 //        findViewById<DrawerLayout>(R.id.drawer_layout_main).setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);

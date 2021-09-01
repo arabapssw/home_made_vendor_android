@@ -152,5 +152,10 @@
     <string name="no_notes">No Notes</string>
     <string name="add_photo">Add photo for product (png,jpeg)</string>
 
+    <string name="client">عميل</string>
+    <string name="sales">مبيعات</string>
+    <string name="complete_orders">طلبات مكتمله</string>
+    <string name="credit_card">بطاقة الدفع</string>
+    <string name="bank_transfer">تحويل بنكي</string>
 
 </resources>

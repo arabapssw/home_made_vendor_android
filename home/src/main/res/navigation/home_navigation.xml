@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_navigation"
-    app:startDestination="@id/testFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.homemade.home.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        android:id="@+id/homeFragment"
+        android:name="com.homemade.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 
 <!--    <fragment-->
 <!--        android:id="@+id/categoriesFragment2"-->
@@ -18,7 +18,8 @@
     <fragment
         android:id="@+id/productsFragment2"
         android:name="com.homemade.products.productsFragment"
-        android:label="productsFragment" />
+        android:label="productsFragment"
+        tools:layout="@layout/fragment_products"/>
 <!--    <fragment-->
 <!--        android:id="@+id/cartFragment2"-->
 <!--        android:name="com.homemade.cart.CartFragment"-->
@@ -26,5 +27,6 @@
     <fragment
         android:id="@+id/ordersListFragment"
         android:name="com.homemade.orderslist.OrdersListFragment"
-        android:label="HomeFragment" />
+        android:label="orderFragment"
+        tools:layout="@layout/fragment_orders_list" />
 </navigation>
