@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -75,11 +76,39 @@ class OrderFragment : BaseFragment(), OrderPagedListAdapter.OnItemClickOfProduct
             context?.startActivity(intent)
         }
 
+
+
+        orderPagedListAdapter.addLoadStateListener { loadState ->
+
+            // getting the error
+            val error = when {
+                loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
+                loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+                loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
+                else -> null
+            }
+            when(loadState.refresh is LoadState.Loading) {
+                true -> showProgress()
+                //false-> dismissProgressDialog()
+
+            }
+            when(loadState.source.refresh is LoadState.NotLoading) {
+                true -> dismissProgressDialog()
+                //false-> dismissProgressDialog()
+
+            }
+
+
+
+            error.let {
+                 // Toast.makeText(requireContext(), it?.error.toString(), Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 
     override fun onResume() {
         super.onResume()
-        showProgress()
         getOrdersList()
 
     }
@@ -90,17 +119,6 @@ class OrderFragment : BaseFragment(), OrderPagedListAdapter.OnItemClickOfProduct
                 dismissProgressDialog()
                 orderPagedListAdapter.submitData(it)
 
-            }
-            orderPagedListAdapter.loadStateFlow.collect {
-                if (it.refresh is LoadState.Error) {
-                    requireActivity().showToast(it.toString())
-                }
-                if (it.append is LoadState.Loading) {
-                    showProgress()
-                }
-                if (it.append is LoadState.NotLoading) {
-                    dismissProgressDialog()
-                }
             }
         }
     }

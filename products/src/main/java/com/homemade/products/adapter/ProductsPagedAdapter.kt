@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.paging.PagingDataAdapter
@@ -14,6 +15,7 @@ import com.floriaapp.core.domain.model.category.categoryProductItem
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 import com.homemade.products.R
 import com.test.utils.ACTIVE
+import com.test.utils.Ext.loadImage
 import com.test.utils.Extensions.getScreenWidth
 import com.test.utils.INACTIVE
 import com.test.utils.PRODUCT_PIN
@@ -36,6 +38,8 @@ class ProductsPagedAdapter(
         with(holder.itemView) {
             val data = getItem(position)
             findViewById<TextView>(R.id.tv_vendor_name).text = data?.nameAr
+            findViewById<ImageView>(R.id.iv_product).loadImage(data?.image)
+
             findViewById<TextView>(R.id.tv_price_product).text =
                 data?.price.toString() + " " + resources.getString(R.string.egp)
             findViewById<TextView>(R.id.tv_weight).text = data?.weight.toString()
@@ -56,46 +60,6 @@ class ProductsPagedAdapter(
                 ACTIVE -> setActivePinned()
                 INACTIVE ->setInActivePinned()
             }
-
-//            if (getItem(position) !=null) {
-//                btn_add_cart_details.setOnClickListener {
-//                    getItem(position)?.let { it1 -> interaction?.addToCartClicked(position, it1) }
-//                    if (context.isUserVerifed()) {
-//                        getItem(position)?.inCart = true
-//                        notifyItemChanged(position)
-//                    }
-//                }
-//                iv_favourite.setOnClickListener {
-//                    if ((context as BaseActivity).showNotAuthorizedUser(function = { (context as BaseActivity).navigateToLogin() })) return@setOnClickListener
-//
-//                    if (context.isUserVerifed()) {
-//                        if (getItem(position)?.isFavorited == true) {
-//                            getItem(position)?.isFavorited = false
-//                            getItem(position)?.let { it1 ->
-//                                interaction?.favoriteFunction(
-//                                    position,
-//                                    it1, UNFAVOURITES
-//                                )
-//                            }
-//                        } else {
-//                            getItem(position)?.isFavorited = true
-//                            getItem(position)?.let { it1 ->
-//                                interaction?.favoriteFunction(
-//                                    position,
-//                                    it1, FAVOURITES
-//                                )
-//                            }
-//                        }
-//                        notifyItemChanged(position)
-//                    }
-//                }
-//                setOnClickListener {
-//                    getItem(position)?.let { it1 -> interaction?.onItemClicked(position, it1) }
-//                }
-//            }
-//
-
-
         }
 
 

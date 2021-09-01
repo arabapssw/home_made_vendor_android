@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AddProductFirstStepActivity">
+
+
+        <com.test.utils.custom.CustomToolbar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:isBack="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/custom_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/new_product"
+            />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:layout_width="0dp"
+            android:inputType="text"
+            android:layout_margin="15dp"
+            android:id="@+id/tv_sku"
+            app:layout_constraintHorizontal_weight="1"
+            android:text="@string/sku_title"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
+            app:layout_constraintEnd_toStartOf="@id/tv_product_discount"
+            />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:layout_width="0dp"
+            android:inputType="text"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/tv_product_discount"
+            android:text="@string/discount_product"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_sku"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
+            />
+
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:layout_width="0dp"
+            android:inputType="text"
+            android:layout_margin="15dp"
+            android:id="@+id/tv_begin_discount"
+            app:layout_constraintHorizontal_weight="1"
+            android:text="@string/begin_discount"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_sku"
+            app:layout_constraintEnd_toStartOf="@id/tv_product_discount"
+            />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:layout_width="0dp"
+            android:inputType="text"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/tv_end_discount"
+            android:text="@string/end_discount"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_begin_discount"
+            app:layout_constraintEnd_toEndOf="@id/tv_product_discount"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_discount"
+            />
+
+
+
+
+
+        <com.test.utils.custom.CustomSpinner
+            android:layout_width="0dp"
+            android:id="@+id/spinner_tags"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_begin_discount"
+            app:layout_constraintTop_toBottomOf="@id/tv_begin_discount"
+            app:layout_constraintEnd_toEndOf="@id/tv_end_discount"
+            />
+
+
+
+        <com.test.utils.custom.CustomUploadBtn
+            android:layout_width="0dp"
+            android:id="@+id/btn_upload"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/spinner_tags"
+            app:layout_constraintTop_toBottomOf="@id/spinner_tags"
+            app:layout_constraintEnd_toEndOf="@id/spinner_tags"
+            />
+
+        <com.test.utils.custom.CustomSwitch
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_status_check"
+            app:layout_constraintStart_toStartOf="@id/btn_upload"
+            app:layout_constraintTop_toBottomOf="@id/btn_upload"
+            app:layout_constraintEnd_toEndOf="@id/btn_upload"
+            />
+
+        <com.test.utils.custom.CustomSwitch
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_pin_check"
+            app:layout_constraintStart_toStartOf="@id/product_status_check"
+            app:layout_constraintTop_toBottomOf="@id/product_status_check"
+            app:layout_constraintEnd_toEndOf="@id/product_status_check"
+            />
+
+        <com.test.utils.custom.CustomSwitch
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_visibility_check"
+            app:layout_constraintStart_toStartOf="@id/product_status_check"
+            app:layout_constraintTop_toBottomOf="@id/product_pin_check"
+            app:layout_constraintEnd_toEndOf="@id/product_pin_check"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/product_visibility_check"
+            app:layout_constraintTop_toBottomOf="@id/product_visibility_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black41"
+            android:id="@+id/tv_questions_on_product_title"
+            android:text="@string/questions_on_product"
+            />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:layout_width="0dp"
+            android:inputType="text"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_question"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_questions_on_product_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_questions_on_product_title"
+            app:layout_constraintEnd_toEndOf="@id/product_visibility_check"
+            />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:layout_width="0dp"
+            android:inputType="text"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_answer"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_question"
+            app:layout_constraintTop_toBottomOf="@id/tv_question"
+            app:layout_constraintEnd_toEndOf="@id/tv_question"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_answer"
+            app:layout_constraintTop_toBottomOf="@id/tv_answer"
+            android:text="@string/add_another_question"
+            android:textColor="@color/teaBlue"
+            android:drawableStart="@drawable/ic_icon_awesome_plus"
+            android:drawablePadding="10sp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/tv_add_another"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_another"
+            android:backgroundTint="@color/teaBlue"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/add"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:id="@+id/btn_add_product"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancel"
+            android:textAllCaps="false"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toEndOf="@id/btn_add_product"
+            app:layout_constraintBottom_toBottomOf="@id/btn_add_product"
+            app:layout_constraintTop_toTopOf="@id/btn_add_product"
+            android:textColor="@color/teaBlue"
+            android:text="@string/cancel"
+            android:layout_marginEnd="15dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/teaBlue"
+            android:id="@+id/btn_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textAllCaps="false"
+            />
+
+
+
+
+
+
+
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="0dp"-->
+<!--            android:backgroundTint="@color/teaBlue"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:layout_marginBottom="40dp"-->
+<!--            android:text="@string/next"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_product_price"-->
+<!--            android:id="@+id/btn_next_add"-->
+<!--            android:textColor="@color/colorWhite"-->
+<!--            android:textAllCaps="false"-->
+<!--            app:cornerRadius="5dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            />-->
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

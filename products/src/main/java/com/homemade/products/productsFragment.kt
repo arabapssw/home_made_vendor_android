@@ -19,6 +19,7 @@ import com.homemade.products.databinding.FragmentProductsBinding
 import com.test.utils.Bases.BaseFragment
 import com.test.utils.Bases.Communication
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -48,6 +49,7 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
 
 
         initAdapter()
+
         allProductsAdapter.addLoadStateListener { loadState ->
 
             // getting the error
@@ -57,32 +59,60 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
                 loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
                 else -> null
             }
+            when(loadState.refresh is LoadState.Loading) {
+                true -> showProgress()
+                //false-> dismissProgressDialog()
 
-            when(loadState.append is LoadState.Loading) {
-               true -> showProgress()
-                false-> dismissProgressDialog()
             }
+            when(loadState.source.refresh is LoadState.NotLoading) {
+                true -> dismissProgressDialog()
+                //false-> dismissProgressDialog()
+
+            }
+
+
+
             error.let {
-              //  Toast.makeText(requireContext(), it?.error.toString(), Toast.LENGTH_LONG).show()
+                // Toast.makeText(requireContext(), it?.error.toString(), Toast.LENGTH_LONG).show()
             }
         }
 
+//        allProductsAdapter.addLoadStateListener { loadState ->
+//
+//            // getting the error
+//            val error = when {
+//                loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
+//                loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+//                loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
+//                else -> null
+//            }
+//            error.let {
+//              //  Toast.makeText(requireContext(), it?.error.toString(), Toast.LENGTH_LONG).show()
+//            }
+//        }
+
 
         productsViewModel.SuccessMessage.observe(viewLifecycleOwner, Observer {
-            dismissProgressDialog()
+           // dismissProgressDialog()
             launchProducts()
         })
     }
 
     private fun launchProducts() {
         with(lifecycleScope) {
-            allProductsAdapter.submitData(lifecycle, PagingData.empty())
+          //  allProductsAdapter.submitData(lifecycle, PagingData.empty())
                 launch {
                     productsViewModel.getAllProducts().collect() {
                         Log.i("data", it.toString())
                         allProductsAdapter.submitData(it)
+
+
+
                     }
+
+
                 }
+
         }
     }
 
@@ -108,7 +138,7 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
         item: ProviderProductsResponseItem,
         typeChoosen: Int
     ) {
-        showProgress()
+       // showProgress()
         productsViewModel.toggleProductPinnedOrStatus(item.id,typeChoosen)
     }
 

@@ -162,4 +162,5 @@
     <string name="complete_orders">طلبات مكتمله</string>
     <string name="credit_card">بطاقة الدفع</string>
     <string name="bank_transfer">تحويل بنكي</string>
+    <string name="product_status">حالة المنتج</string>
 </resources>

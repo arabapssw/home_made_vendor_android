@@ -9,7 +9,7 @@ data class OrderDetailsVendorItem(
     @SerializedName("created_at")
     val createdAt: CreatedAt,
     @SerializedName("discount")
-    val discount: Int,
+    val discount: Double,
     @SerializedName("has_rating")
     val hasRating: Boolean,
     @SerializedName("id")
@@ -35,15 +35,15 @@ data class OrderDetailsVendorItem(
     @SerializedName("shipping")
     val shipping: Shipping,
     @SerializedName("shipping_fees")
-    val shippingFees: Int,
+    val shippingFees: Double,
     @SerializedName("subtotal")
-    val subtotal: Int,
+    val subtotal: Double,
     @SerializedName("subtotal_after_discount")
-    val subtotalAfterDiscount: Int,
+    val subtotalAfterDiscount: Double,
     @SerializedName("total")
-    val total: Int,
+    val total: Double,
     @SerializedName("total_tax")
-    val totalTax: Int,
+    val totalTax: Double,
     @SerializedName("user")
     val user: User
 )

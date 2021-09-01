@@ -149,7 +149,7 @@ class CustomDialog {
         dialog?.show()
     }
 
-    class NeededReceipt(var title: String, var Price: Int)
+    class NeededReceipt(var title: String, var Price: Double)
 
     fun showVerificationDialog(
         activity: Activity?,

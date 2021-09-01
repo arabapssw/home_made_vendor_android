@@ -35,15 +35,15 @@ data class OrderListResponseItem(
     @SerializedName("shipping")
     val shipping: Shipping,
     @SerializedName("shipping_fees")
-    val shippingFees: Int,
+    val shippingFees: Double,
     @SerializedName("subtotal")
-    val subtotal: Int,
+    val subtotal: Double,
     @SerializedName("subtotal_after_discount")
     val subtotalAfterDiscount: Double,
     @SerializedName("total")
     val total: Double,
     @SerializedName("total_tax")
-    val totalTax: Int,
+    val totalTax: Double,
     @SerializedName("user")
     val user: User
 )
