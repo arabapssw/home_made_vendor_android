@@ -18,6 +18,8 @@
     <string name="message_complain">Please insert at least 3 characters and max 250 char</string>
     <string name="reply_title">Write your reply here </string>
 
+    <string name="services_title">Bills</string>
+
     <string name="apartment_number_title">Apartment number </string>
     <string name="in_progress_title">In Progress</string>
     <string name="shipped_title">Shipped</string>

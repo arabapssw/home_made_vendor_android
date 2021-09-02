@@ -24,7 +24,7 @@
 
 
     <item
-        android:id="@+id/services_navigation"
+        android:id="@+id/billsFragment"
         android:title="@string/services_title"
         android:icon="@drawable/ic_combined_shape"/>
 </menu>

@@ -8,6 +8,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/home_made_vendor_android/bills/src/main/res/layout/bill_item.xml" value="0.5" />
+        <entry key="..\:/home_made_vendor_android/bills/src/main/res/layout/bill_product_item.xml" value="0.5" />
+        <entry key="..\:/home_made_vendor_android/bills/src/main/res/layout/fragment_bill_details_list_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/home_made_vendor_android/bills/src/main/res/layout/fragment_bills.xml" value="0.33" />
         <entry key="..\:/home_made_vendor_android/home/src/main/res/layout/activity_home.xml" value="0.20427305888483585" />
         <entry key="..\:/home_made_vendor_android/home/src/main/res/layout/badgelayout.xml" value="0.20416666666666666" />
         <entry key="..\:/home_made_vendor_android/home/src/main/res/layout/fragment_home.xml" value="0.34857849196538937" />

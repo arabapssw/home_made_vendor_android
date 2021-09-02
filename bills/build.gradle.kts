@@ -1,7 +1,6 @@
 plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
-    id(BuildPlugins.kotlinAndroidExtensions)
 }
 
 android {
@@ -10,8 +9,6 @@ android {
     defaultConfig {
         minSdkVersion(AndroidSdk.min)
         targetSdkVersion(AndroidSdk.target)
-
-
         testInstrumentationRunner ("androidx.test.runner.AndroidJUnitRunner")
         consumerProguardFiles ("consumer-rules.pro")
     }
@@ -34,17 +31,16 @@ android {
         jvmTarget = "1.8"
     }
 }
-dependencies {
 
+dependencies {
 
     implementation(Libraries.ktxCore)
     implementation(project(Libraries.utilsModule))
     implementation(project(Libraries.coreModule))
     implementation(project(Libraries.ordersListModule))
     implementation(project(Libraries.productsModule))
-    implementation(project(Libraries.billsModule))
-    implementation(Libraries.hodenhofCircular)
 
+    implementation(Libraries.hodenhofCircular)
     implementation(Libraries.appCompat)
     implementation(Libraries.googleMaterial)
     implementation (Libraries.constraintLayout)

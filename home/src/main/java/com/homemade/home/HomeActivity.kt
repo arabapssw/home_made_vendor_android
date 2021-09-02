@@ -275,7 +275,7 @@ class HomeActivity : BaseActivity(), Communication, LanguagesAdapter.OnItemClick
     }
 
     override fun goToServicesTab() {
-        //  bottomNavigationView.selectedItemId = (R.id.services_navigation)
+          bottomNavigationView.selectedItemId = (R.id.billsFragment)
     }
 
     override fun invokeCartCounter() {

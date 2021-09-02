@@ -17,6 +17,8 @@
     <string name="message_complain">  فضلاً أدخل على الأقل 3 حروف</string>
     <string name="reply_title"> اكتب ردك هنا </string>
 
+    <string name="services_title">الفواتير</string>
+
     <string name="apartment_number_title">Apartment number </string>
     <string name="in_progress_title">جاري الطلب</string>
     <string name="shipped_title">جاهز للتوصيل</string>

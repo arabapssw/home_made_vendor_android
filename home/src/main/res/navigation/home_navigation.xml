@@ -29,4 +29,10 @@
         android:name="com.homemade.orderslist.OrdersListFragment"
         android:label="orderFragment"
         tools:layout="@layout/fragment_orders_list" />
+
+    <fragment
+        android:id="@+id/billsFragment"
+        android:name="com.homemade.bills.BillsFragment"
+        android:label="BillsFragment"
+        tools:layout="@layout/fragment_bills"/>
 </navigation>
