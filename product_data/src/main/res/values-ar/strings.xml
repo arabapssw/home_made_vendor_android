@@ -10,8 +10,8 @@
     <string name="delivery_in_seller_location_only">التوصيل بمدينة البائع فقط</string>
     <string name="sku_title">رمز التخزين</string>
     <string name="discount_product">الخصم على المنتج</string>
-    <string name="begin_discount">بداية التخفيض</string>
-    <string name="end_discount" >نهاية التخفيض</string>
+    <string name="begin_discount"> بداية التخفيض (إختياري)</string>
+    <string name="end_discount" > نهاية التخفيض (إختياري)</string>
     <string name="questions_on_product">أسئلة عن المنتج</string>
     <string name="add_another_question">إضافة سؤال آخر</string>
     <string name="add">إضافة</string>
@@ -20,5 +20,16 @@
     <string name="upload_image_please">فضلا أرفع صور المنتج</string>
     <string name="upload_success">تم رفع الصورة</string>
     <string name="type">النوع</string>
+    <string name="opening_tags">كلمات مفتاحية</string>
+    <string name="images_uploaded">عدد الصور المرفوعة </string>
+    <string name="pin_product">تثبيت المنتج</string>
+    <string name="visibility_product">إخفاء المنتج</string>
+    <string name="tags_allowed_message">لا يمكنك اختيار أكثر من 6  كلمات مفتاحية</string>
+    <string name="choose_opening"> + إختر كلمة مفتاحية إضافية </string>
+    <string name="inputLength">يجب أن يكون طول النص الوصف على الأقل 3 حروفٍ</string>
+    <string name="not_exceed_150_characters">( لا يزيد عن 150 حرف )</string>
+    <string name="price_hint">500 ريال</string>
+    <string name="plate_hint">5 اطباق</string>
+
 
 </resources>

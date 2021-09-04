@@ -96,8 +96,8 @@ const val PRODUCT_ID = "product_id"
 const val VENDOR_ID = "vendor_id"
 const val VENDOR_NAME = "vendor_name"
 
-const val COUNTRIES = "countries"
-const val NATIONALITIES = "nationalities"
+const val CATEGORIES = "categories"
+const val TAGS = "tags"
 const val BANK = "bank"
 const val SOCIAL_MEDIA_SETTINGS = "social_media"
 

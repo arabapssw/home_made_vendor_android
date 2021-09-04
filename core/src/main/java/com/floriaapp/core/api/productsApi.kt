@@ -2,6 +2,7 @@ package com.floriaapp.core.api
 
 import com.floriaapp.core.domain.model.category.CategoriesResponse
 import com.floriaapp.core.domain.model.category.CategoryProducts
+import com.floriaapp.core.domain.model.general.GeneralDataResponse
 import com.floriaapp.core.domain.model.orderSuccess.OrderSuccess
 import com.floriaapp.core.domain.model.product.ProductDetailsResponse
 import com.floriaapp.core.domain.model.provider_.order_details.OrderDetailsVendorResponse
@@ -12,6 +13,8 @@ import com.floriaapp.core.domain.model.rating.RatingData
 import com.floriaapp.core.domain.model.success.SuccessMessage
 import com.floriaapp.core.domain.model.tagItems.TageItemResponse
 import com.floriaapp.core.domain.model.tagItems.TagsProducts
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface productsApi {
@@ -110,4 +113,32 @@ interface productsApi {
     ): SuccessMessage
 
 
+    @GET("/api/v1/provider/general")
+    suspend fun getGeneralData(
+        @Query("list[]") firstList: String = "countries",
+        @Query("list[]") secondList: String = "nationalities",
+        @Query("list[]") thirdList: String = "bankTransferSettings",
+        @Query("list[]") fourthList: String = "settings"): GeneralDataResponse
+
+
+    @POST("/api/v1/provider/products")
+    @Multipart
+    suspend fun storeProduct(
+        @Part("name_ar") nameArabic: RequestBody?,
+        @Part("name_en") nameEnglish: RequestBody?,
+        @Part("description_ar") descriptionArabic: RequestBody?,
+        @Part("description_en") descriptionEnglish: RequestBody?,
+        @Part("discount_start_date") discountStart: RequestBody?,
+        @Part("discount_end_date") discountEnd: RequestBody?,
+        @Part("sku") sku: RequestBody?,
+        @Part("price") priceProduct: RequestBody?,
+        @Part("discount") discount: RequestBody?,
+        @Part("weight") weight: RequestBody?,
+        @Part("quantity") quantity: RequestBody?,
+        @Part image: MultipartBody.Part?,
+        @Part("active") active: RequestBody?,
+        @Part("pinned") pinned: RequestBody?,
+        @Part("categories[]") categories: MutableList<Int>?,
+        @Part("tags[]") tags: MutableList<Int>?,
+        @Part images:ArrayList<MultipartBody.Part>?): SuccessMessage?
 }

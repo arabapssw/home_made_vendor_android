@@ -67,7 +67,7 @@ fun Context.createSpinner(
 //    val spinnerAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this,
 //            R.layout.simple_spinner_item, list)
 
-    spinnerAdapter.setDropDownViewResource(com.test.utils.R.layout.simple_spinner_dropdown_item)
+    spinnerAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
     return spinnerAdapter
 }
 @SuppressLint("SimpleDateFormat")

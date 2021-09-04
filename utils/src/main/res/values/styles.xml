@@ -40,7 +40,7 @@
 
     <style name="ChipTextStyle_Selected">
         <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/teaBlue</item>
     </style>
 
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">

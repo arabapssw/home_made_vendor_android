@@ -180,8 +180,8 @@ class SecondStepRegistration : BaseActivity() {
         }
 
 
-        getList(COUNTRIES)
-            .fromJson<MutableList<com.floriaapp.core.domain.model.general.Country>>()
+        getList(CATEGORIES)
+            .fromJson<MutableList<com.floriaapp.core.domain.model.general.Categories>>()
             ?.forEachIndexed { index, country ->
                 countries[country.name] = country.id
                 countriesList.add(country.name)
@@ -190,7 +190,7 @@ class SecondStepRegistration : BaseActivity() {
 
         createAdapter(countriesList, binding.spinnerCountries)
 
-        getList(NATIONALITIES).fromJson<MutableList<Nationality>>()
+        getList(TAGS).fromJson<MutableList<Nationality>>()
             ?.forEachIndexed { index, nationality ->
                 nationalities[nationality.name] = nationality.id
                 nationalitiesList.add(nationality.name)

@@ -8,28 +8,18 @@ data class GeneralDataResponse(
     val `data`: GeneralItem
 )
 
-data class Country(
-    @SerializedName("dial_code")
-    val dialCode: String,
-    @SerializedName("flag")
-    val flag: String,
+data class Categories(
     @SerializedName("id")
     val id: String,
-    @SerializedName("iso")
-    val iso: String,
     @SerializedName("name")
     val name: String
 )
 
 data class GeneralItem(
-    @SerializedName("countries")
-    val countries: List<Country>,
-    @SerializedName("nationalities")
-    val nationalities: List<Nationality>,
-    @SerializedName("bankTransferSettings")
-    val bankTransferSettings: bankTransferSettings,
-    @SerializedName("settings")
-    val settings: settings
+    @SerializedName("categories")
+    val categories: List<Categories>,
+    @SerializedName("tags")
+    val tags: List<tags>
 )
 
 data class Nationality(
@@ -42,6 +32,10 @@ data class Nationality(
 data class bankTransferSettings(
     @SerializedName("bank") val bank: String,
     @SerializedName("account_number") val accountNumber: String
+)
+ class tags(
+    @SerializedName("id") val id: String,
+    @SerializedName("name") val name: String
 )
 data class settings(
     @SerializedName("name") val name: String,

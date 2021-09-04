@@ -9,7 +9,7 @@ import retrofit2.http.*
 interface generalApi {
 
 
-    @GET("/api/v1/general")
+    @GET("/api/v1/provider/general")
     suspend fun getGeneralData(
         @Query("list[]") firstList: String = "countries",
         @Query("list[]") secondList: String = "nationalities",

@@ -31,10 +31,8 @@
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/flowerType_spinner"
-            android:padding="15dp"
-            android:backgroundTint="@color/teaBlue"
+            android:layout_height="match_parent"
+            android:id="@+id/spinner"
             />
 
     </FrameLayout>

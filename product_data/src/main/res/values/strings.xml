@@ -19,4 +19,14 @@
     <string name="upload_image_please">Upload Image product Please</string>
     <string name="upload_success">Image Uploaded Successfully</string>
     <string name="type">Type</string>
+    <string name="opening_tags">Opening Tags</string>
+    <string name="images_uploaded">Images Uploaded</string>
+    <string name="pin_product">Pin Product</string>
+    <string name="visibility_product">product visibility</string>
+    <string name="tags_allowed_message">You cannot select more than 6 tags</string>
+    <string name="choose_opening">" + Choose opening word "</string>
+    <string name="inputLength">"Description not less than 3 characters "</string>
+    <string name="not_exceed_150_characters">Not Exceed 150 Characters</string>
+    <string name="price_hint">500 SA</string>
+    <string name="plate_hint">5 plates</string>
 </resources>

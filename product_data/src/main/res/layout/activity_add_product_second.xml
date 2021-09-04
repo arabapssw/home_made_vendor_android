@@ -56,6 +56,8 @@
             android:inputType="text"
             android:layout_margin="15dp"
             android:id="@+id/tv_begin_discount"
+            app:isHtml="true"
+
             app:layout_constraintHorizontal_weight="1"
             android:text="@string/begin_discount"
             android:layout_height="wrap_content"
@@ -70,6 +72,8 @@
             app:layout_constraintHorizontal_weight="1"
             android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
+            app:isHtml="true"
+
             android:id="@+id/tv_end_discount"
             android:text="@string/end_discount"
             android:layout_height="wrap_content"
@@ -86,36 +90,52 @@
             android:layout_width="0dp"
             android:id="@+id/spinner_tags"
             android:layout_marginTop="15dp"
+            android:text="@string/opening_tags"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/tv_begin_discount"
             app:layout_constraintTop_toBottomOf="@id/tv_begin_discount"
             app:layout_constraintEnd_toEndOf="@id/tv_end_discount"
             />
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@id/spinner_tags"
+            app:layout_constraintStart_toStartOf="@id/spinner_tags"
+            app:layout_constraintTop_toBottomOf="@id/spinner_tags"
+            app:singleLine="false"
+            app:singleSelection="true" />
+
+
 
 
         <com.test.utils.custom.CustomUploadBtn
             android:layout_width="0dp"
-            android:id="@+id/btn_upload"
+            android:id="@+id/btn_upload_second"
             android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/spinner_tags"
-            app:layout_constraintTop_toBottomOf="@id/spinner_tags"
-            app:layout_constraintEnd_toEndOf="@id/spinner_tags"
+            app:layout_constraintStart_toStartOf="@id/chip_group"
+            app:layout_constraintTop_toBottomOf="@id/chip_group"
+            app:layout_constraintEnd_toEndOf="@id/chip_group"
             />
 
         <com.test.utils.custom.CustomSwitch
             android:layout_width="0dp"
+            android:text="@string/product_status"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:id="@+id/product_status_check"
-            app:layout_constraintStart_toStartOf="@id/btn_upload"
-            app:layout_constraintTop_toBottomOf="@id/btn_upload"
-            app:layout_constraintEnd_toEndOf="@id/btn_upload"
+            app:layout_constraintStart_toStartOf="@id/btn_upload_second"
+            app:layout_constraintTop_toBottomOf="@id/btn_upload_second"
+            app:layout_constraintEnd_toEndOf="@id/btn_upload_second"
             />
 
         <com.test.utils.custom.CustomSwitch
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@string/pin_product"
             android:id="@+id/product_pin_check"
             app:layout_constraintStart_toStartOf="@id/product_status_check"
             app:layout_constraintTop_toBottomOf="@id/product_status_check"
@@ -124,6 +144,8 @@
 
         <com.test.utils.custom.CustomSwitch
             android:layout_width="0dp"
+            android:text="@string/visibility_product"
+
             android:layout_height="wrap_content"
             android:id="@+id/product_visibility_check"
             app:layout_constraintStart_toStartOf="@id/product_status_check"
