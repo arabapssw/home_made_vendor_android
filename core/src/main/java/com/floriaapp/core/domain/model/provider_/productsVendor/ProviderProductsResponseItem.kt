@@ -13,7 +13,7 @@ data class ProviderProductsResponseItem(
     @SerializedName("description_en")
     val descriptionEn: String,
     @SerializedName("discount")
-    val discount: Int,
+    val discount: Double,
     @SerializedName("discount_end_date")
     val discountEndDate: String,
     @SerializedName("discount_start_date")
@@ -31,13 +31,13 @@ data class ProviderProductsResponseItem(
     @SerializedName("pinned")
     val pinned: Int,
     @SerializedName("price")
-    val price: Int,
+    val price: Double,
     @SerializedName("product_questions")
     val productQuestions: List<ProductQuestion>,
     @SerializedName("quantity")
     val quantity: Int,
     @SerializedName("rate")
-    val rate: Int,
+    val rate: Double,
     @SerializedName("sku")
     val sku: String,
     @SerializedName("tags")
@@ -45,5 +45,5 @@ data class ProviderProductsResponseItem(
     @SerializedName("url")
     val url: String,
     @SerializedName("weight")
-    val weight: Int
+    val weight: Double
 )

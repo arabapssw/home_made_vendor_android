@@ -90,6 +90,15 @@ interface productsApi {
     @POST("/api/v1/provider/toggle-product-status/{productId}")
     suspend fun toggleProductStatus(@Path("productId") productId: Int): SuccessMessage
 
+
+
+    @DELETE("/api/v1/provider/products/{product_id}")
+    suspend fun deleteProduct(@Path("product_id") productId: Int): SuccessMessage
+
+
+    @POST("/api/v1/provider/delete-all-products")
+    suspend fun deleteAllProducts(): SuccessMessage
+
     @POST("/api/v1/provider/toggle-pinned-product/{productId}")
     suspend fun togglePinnedProduct(@Path("productId") productId: Int): SuccessMessage
 

@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import com.floriaapp.core.ui.LoginViewModel
+import com.floriaapp.core.ui.ProductsViewModel
 import com.test.utils.ARABIC
 import com.test.utils.Common.CustomDialog
 import com.test.utils.Common.CustomProgress
@@ -41,6 +42,10 @@ open class BaseFragment : Fragment() {
 
     fun showSuccessResetPassword(){
         customDialog.showSuccessResetPassword(requireActivity())
+    }
+
+    fun showMoreDialog(location: IntArray, productsViewModel: ProductsViewModel, id: Int) {
+        customDialog.showMoreDialog(requireActivity(),location,productsViewModel,id)
     }
     fun showSuccessFavouriteMessage(message: String) {
         customDialog.showSuccessFavourites(requireActivity(),message)

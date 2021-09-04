@@ -165,4 +165,11 @@
     <string name="credit_card">بطاقة الدفع</string>
     <string name="bank_transfer">تحويل بنكي</string>
     <string name="product_status">حالة المنتج</string>
+    <string name="edit_product">تعديل المنتج</string>
+    <string name="duplicate_product">تكرار المنتج</string>
+    <string name="copy_url">نسخ الرابط</string>
+    <string name="delete_product">حذف المنتج</string>
+    <string name="delete_product_all">حذف جميع المنتجات</string>
+
+
 </resources>

@@ -7,16 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.floriaapp.core.domain.model.category.categoryProductItem
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 import com.homemade.products.R
 import com.test.utils.ACTIVE
 import com.test.utils.Ext.loadImage
-import com.test.utils.Extensions.getScreenWidth
 import com.test.utils.INACTIVE
 import com.test.utils.PRODUCT_PIN
 import com.test.utils.PRODUCT_STATUS
@@ -51,6 +48,12 @@ class ProductsPagedAdapter(
             findViewById<TextView>(R.id.tv_tasbet).setOnClickListener {
                 interaction?.onItemClicked(position,data!!, PRODUCT_PIN)
             }
+            findViewById<ImageView>(R.id.iv_more).setOnClickListener {
+                val location = IntArray(2)
+                this.getLocationOnScreen(location)
+                interaction?.onMoreClicked(data!!,location)
+            }
+
 
             when (data?.active) {
                 ACTIVE -> setActiveStatus()
@@ -138,6 +141,7 @@ class ProductsPagedAdapter(
 
     interface OnItemClickOfProduct {
         fun onItemClicked(position: Int, item: ProviderProductsResponseItem,typeChoosen:Int)
+        fun onMoreClicked(item: ProviderProductsResponseItem, location: IntArray)
 
     }
 

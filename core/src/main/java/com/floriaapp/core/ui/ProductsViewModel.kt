@@ -133,4 +133,21 @@ class ProductsViewModel(var productsApi: productsApi) : ViewModel() {
     }
 
 
+    fun deleteProductsORProducts(productId: Int?=null, typeOfFav: Int) {
+        launchDataLoad(execution = {
+
+            _SuccessMessage.value = when (typeOfFav) {
+                1 -> productsApi.deleteProduct(productId!!)
+                2 -> productsApi.deleteAllProducts()
+                else -> null
+            }
+        }, errorReturned = {
+            Log.e("error", it.message.toString())
+            _Error.postValue(it.toErrorBody())
+        })
+
+    }
+
+
+
 }

@@ -45,7 +45,7 @@ android {
                 "String",
 
                 BuildConfig.BASE_URL,
-                BuildConfig.Production.BASE_URL
+                BuildConfig.Debug.BASE_URL
             )
 
 

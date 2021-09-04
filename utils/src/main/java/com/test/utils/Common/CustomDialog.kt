@@ -10,6 +10,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.InsetDrawable
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
@@ -19,9 +20,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chaos.view.PinView
 import com.floriaapp.core.domain.model.general.bankTransferSettings
 import com.floriaapp.core.domain.model.provider_.order_details.OrderDetailsVendorItem
-import com.floriaapp.core.ui.OrderViewModel
 import com.floriaapp.core.ui.LoginViewModel
+import com.floriaapp.core.ui.OrderViewModel
+import com.floriaapp.core.ui.ProductsViewModel
 import com.test.utils.BANK
+import com.test.utils.Bases.BaseActivity
 import com.test.utils.Ext.getObject
 import com.test.utils.Ext.isTimeWith_in_Interval
 import com.test.utils.Ext.showToast
@@ -301,6 +304,46 @@ class CustomDialog {
         val back = ColorDrawable(Color.TRANSPARENT)
         val inset = InsetDrawable(back, 40)
         dialog?.window?.setBackgroundDrawable(inset)
+
+        dialog?.setCancelable(true)
+        dialog?.show()
+    }
+
+    fun showMoreDialog(
+        activity: Activity?,
+        location: IntArray,
+        productsViewModel: ProductsViewModel,
+        id: Int
+    ) {
+
+        dialog = activity?.let { Dialog(it) }!!
+        dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val view = LayoutInflater.from(activity.baseContext).inflate(R.layout.more_layout, null)
+        dialog?.setContentView(view!!)
+
+        val window: Window? = dialog?.window
+        window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val back = ColorDrawable(Color.TRANSPARENT)
+        val inset = InsetDrawable(back, 80)
+     //   deleteProductsORProducts
+        dialog?.window?.setBackgroundDrawable(inset)
+        window?.attributes?.gravity = Gravity.TOP or Gravity.LEFT
+        Log.i("location",location.get(0).toString())
+        Log.i("location",location.get(1).toString())
+
+        window?.attributes?.x = location.get(0)
+        window?.attributes?.y = location.get(1)
+
+
+        view.findViewById<TextView>(R.id.tV_delete_product).setOnClickListener {
+            dialog?.dismiss()
+            productsViewModel.deleteProductsORProducts(id,1)
+        }
+        view.findViewById<TextView>(R.id.tV_delete_all_products).setOnClickListener {
+            dialog?.dismiss()
+            productsViewModel.deleteProductsORProducts(null,2)
+        }
+
 
         dialog?.setCancelable(true)
         dialog?.show()

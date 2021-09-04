@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.floriaapp.core.domain.model.FilterClass.Companion.filterData
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
@@ -19,7 +18,6 @@ import com.homemade.products.databinding.FragmentProductsBinding
 import com.test.utils.Bases.BaseFragment
 import com.test.utils.Bases.Communication
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -77,19 +75,6 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
             }
         }
 
-//        allProductsAdapter.addLoadStateListener { loadState ->
-//
-//            // getting the error
-//            val error = when {
-//                loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
-//                loadState.append is LoadState.Error -> loadState.append as LoadState.Error
-//                loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
-//                else -> null
-//            }
-//            error.let {
-//              //  Toast.makeText(requireContext(), it?.error.toString(), Toast.LENGTH_LONG).show()
-//            }
-//        }
 
 
         productsViewModel.SuccessMessage.observe(viewLifecycleOwner, Observer {
@@ -140,6 +125,10 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
     ) {
        // showProgress()
         productsViewModel.toggleProductPinnedOrStatus(item.id,typeChoosen)
+    }
+
+    override fun onMoreClicked(item: ProviderProductsResponseItem, location: IntArray) {
+        showMoreDialog(location,productsViewModel,item.id)
     }
 
 

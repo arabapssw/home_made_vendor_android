@@ -160,5 +160,10 @@
     <string name="complete_orders">طلبات مكتمله</string>
     <string name="credit_card">بطاقة الدفع</string>
     <string name="bank_transfer">تحويل بنكي</string>
+    <string name="edit_product">edit Product</string>
+    <string name="duplicate_product">Duplicate Product</string>
+    <string name="copy_url">Copy Url</string>
+    <string name="delete_product">Delete Product</string>
+    <string name="delete_product_all">Delete all products</string>
 
 </resources>
