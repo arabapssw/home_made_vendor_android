@@ -70,6 +70,7 @@ object Libraries {
         const val gson ="2.8.6"
         const val glide = "4.12.0"
         const val paging="3.0.0"
+
         const val circularImageView="3.1.0"
     }
 

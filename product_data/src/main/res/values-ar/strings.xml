@@ -16,5 +16,9 @@
     <string name="add_another_question">إضافة سؤال آخر</string>
     <string name="add">إضافة</string>
     <string name="cancel">إلغاء</string>
+    <string name="checkInput">فضلاً أدخل البيانات الناقصة</string>
+    <string name="upload_image_please">فضلا أرفع صور المنتج</string>
+    <string name="upload_success">تم رفع الصورة</string>
+    <string name="type">النوع</string>
 
 </resources>

@@ -26,6 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/teaBlue"
         android:layout_marginTop="5dp"
+        android:id="@+id/tv_upload_text"
         android:text="@string/add_photo"
         />
 

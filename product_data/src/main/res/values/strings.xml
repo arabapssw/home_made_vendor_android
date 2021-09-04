@@ -15,4 +15,8 @@
     <string name="add_another_question">Add Another Question</string>
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
+    <string name="checkInput">Please insert missing fields</string>
+    <string name="upload_image_please">Upload Image product Please</string>
+    <string name="upload_success">Image Uploaded Successfully</string>
+    <string name="type">Type</string>
 </resources>

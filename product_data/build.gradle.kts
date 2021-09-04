@@ -49,9 +49,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     testImplementation (TestLibraries.junit4)
     implementation (Libraries.corotineCore)
     implementation(Libraries.DotsIndicatorLibrary)
+    implementation (Libraries.okHttp)
+
 
 }
