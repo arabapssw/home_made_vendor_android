@@ -32,6 +32,12 @@
     <string name="plate_hint">5 اطباق</string>
     <string name="weight_hint">500 ك.جم</string>
     <string name="weight_title">الوزن</string>
+    <string name="upload_images">أضف صور للمنتج ( png , jpeg ) </string>
+    <string name="chooseStartDate">فضلا اختر التاريخ الأسبق </string>
+    <string name="sku">SKU</string>
+    <string name="discount_hint">50 ريال</string>
+    <string name="end_discount_hint">ينتهي في</string>
+    <string name="begin_discount_hint">يبدأ في</string>
 
 
 </resources>

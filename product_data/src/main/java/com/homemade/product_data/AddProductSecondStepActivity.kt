@@ -2,6 +2,7 @@ package com.homemade.product_data
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -10,9 +11,9 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.contains
 import androidx.lifecycle.Observer
 import com.floriaapp.core.domain.model.provider_.productsVendor.Tag
@@ -30,6 +31,10 @@ import okhttp3.RequestBody
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.FileNotFoundException
 import java.io.InputStream
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class AddProductSecondStepActivity : BaseActivity() {
     lateinit var binding: ActivityAddProductSecondBinding
@@ -37,6 +42,7 @@ class AddProductSecondStepActivity : BaseActivity() {
     var tagsSpinner = HashMap<String, String>()
     var listOfImages = mutableListOf<MultipartBody.Part>()
     var tagsListInteger = mutableListOf<Int>()
+     var calenderInMilis:Long = 0L
 
 
     @SuppressLint("SetTextI18n")
@@ -68,7 +74,7 @@ class AddProductSecondStepActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddProductSecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        playWithViews()
         attachSpinnersToData()
 
         productViewModel.SuccessMessage.observe(this, Observer {
@@ -96,6 +102,59 @@ class AddProductSecondStepActivity : BaseActivity() {
         }
     }
 
+    private fun playWithViews() {
+        binding.btnUploadSecond.uploadText.text = resources.getString(R.string.upload_images)
+        binding.tvBeginDiscount.editText.isFocusable = false
+        binding.tvEndDiscount.editText.isFocusable = false
+
+        binding.tvBeginDiscount.editText.setOnClickListener {
+            openDatePicker(binding.tvBeginDiscount.editText,true)
+        }
+        binding.tvEndDiscount.editText.setOnClickListener {
+            if (binding.tvBeginDiscount.editText.text.isEmpty()){
+                showToast(resources.getString(R.string.chooseStartDate))
+                return@setOnClickListener
+            }
+            openDatePicker(binding.tvEndDiscount.editText, false)
+        }
+    }
+
+    private fun openDatePicker(editText: EditText, begin: Boolean) {
+        val calndar = Calendar.getInstance()
+
+        // create an OnDateSetListener
+        val dateSetListener =
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                calndar.set(Calendar.YEAR, year)
+                calndar.set(Calendar.MONTH, monthOfYear)
+                calndar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                val backendFormat = "yyyy-MM-dd" // mention the format you need
+                val sdf = SimpleDateFormat(backendFormat, Locale.ENGLISH)
+                if (begin) calenderInMilis = calndar.timeInMillis
+
+
+                editText.setText(sdf.format(calndar.time))
+            }
+
+        val datePicker = DatePickerDialog(
+            this, com.test.utils.R.style.DialogTheme,
+            dateSetListener,
+            // set DatePickerDialog to point to today's date when it loads up
+            calndar.get(Calendar.YEAR),
+            calndar.get(Calendar.MONTH),
+            calndar.get(Calendar.DAY_OF_MONTH)
+        )
+        if (begin)datePicker.datePicker.minDate = System.currentTimeMillis() - 1000;
+        else datePicker.datePicker.minDate = calenderInMilis
+
+        datePicker.show()
+        datePicker.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(resources.getColor(
+            com.test.utils.R.color.teaBlue));
+        datePicker.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(resources.getColor(
+            com.test.utils.R.color.teaBlue));
+
+    }
+
     private fun prepareData(): objectData {
         with(objectData) {
             sku = RequestBody.create(
@@ -116,13 +175,14 @@ class AddProductSecondStepActivity : BaseActivity() {
             )
             images = listOfImages as ArrayList
             active = RequestBody.create(
-                "text/plain".toMediaTypeOrNull(),
-                "0"
+                "text/plain".toMediaTypeOrNull(),if (binding.productStatusCheck.switchCompat.isChecked) "1" else "0"
+
             )
             pinned = RequestBody.create(
                 "text/plain".toMediaTypeOrNull(),
-                "0"
+                if (binding.productPinCheck.switchCompat.isChecked) "1" else "0"
             )
+            tags = tagsListInteger
             return this
         }
 
@@ -134,10 +194,12 @@ class AddProductSecondStepActivity : BaseActivity() {
                 binding.tvSku.editText.error = resources.getString(R.string.checkInput)
                 return true
             }
-//            binding.tvProductDiscount.editText.text.trim().isEmpty() -> {
-//                binding.tvProductDiscount.editText.error = resources.getString(R.string.checkInput)
-//                return true
-//            }
+
+            binding.tvProductDiscount.editText.text.trim().isEmpty() -> {
+
+                binding.tvProductDiscount.editText.error = resources.getString(R.string.checkInput)
+                return true
+            }
             else -> return false
         }
     }
@@ -206,6 +268,8 @@ class AddProductSecondStepActivity : BaseActivity() {
         chip.setTextAppearanceResource(com.test.utils.R.style.ChipTextStyle_Selected);
         return chip
     }
+
+
 
 
 }

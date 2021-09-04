@@ -29,6 +29,8 @@
             android:id="@+id/tv_sku"
             app:layout_constraintHorizontal_weight="1"
             android:text="@string/sku_title"
+            android:maxLength="20"
+            android:hint="@string/sku"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
@@ -42,6 +44,9 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:id="@+id/tv_product_discount"
+            android:maxLength="10"
+            android:hint="@string/discount_hint"
+
             android:text="@string/discount_product"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/tv_sku"
@@ -56,8 +61,8 @@
             android:inputType="text"
             android:layout_margin="15dp"
             android:id="@+id/tv_begin_discount"
+            android:hint="@string/begin_discount_hint"
             app:isHtml="true"
-
             app:layout_constraintHorizontal_weight="1"
             android:text="@string/begin_discount"
             android:layout_height="wrap_content"
@@ -72,9 +77,9 @@
             app:layout_constraintHorizontal_weight="1"
             android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
-            app:isHtml="true"
-
             android:id="@+id/tv_end_discount"
+            android:hint="@string/end_discount_hint"
+            app:isHtml="true"
             android:text="@string/end_discount"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/tv_begin_discount"
@@ -145,7 +150,7 @@
         <com.test.utils.custom.CustomSwitch
             android:layout_width="0dp"
             android:text="@string/visibility_product"
-
+android:visibility="gone"
             android:layout_height="wrap_content"
             android:id="@+id/product_visibility_check"
             app:layout_constraintStart_toStartOf="@id/product_status_check"
@@ -156,8 +161,8 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/product_visibility_check"
-            app:layout_constraintTop_toBottomOf="@id/product_visibility_check"
+            app:layout_constraintStart_toStartOf="@id/product_pin_check"
+            app:layout_constraintTop_toBottomOf="@id/product_pin_check"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="15dp"
             android:textColor="@color/black41"
@@ -173,7 +178,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/tv_questions_on_product_title"
             app:layout_constraintTop_toBottomOf="@id/tv_questions_on_product_title"
-            app:layout_constraintEnd_toEndOf="@id/product_visibility_check"
+            app:layout_constraintEnd_toEndOf="@id/product_pin_check"
             />
 
         <com.test.utils.custom.CustomTitleEditBox

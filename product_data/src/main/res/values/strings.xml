@@ -31,4 +31,10 @@
     <string name="plate_hint">5 plates</string>
     <string name="weight_hint">500 Kg</string>
     <string name="weight_title">Weight</string>
+    <string name="upload_images">Upload Product images please</string>
+    <string name="chooseStartDate">Choose Start Date Please</string>
+    <string name="sku">SKU</string>
+    <string name="discount_hint">Discount hint</string>
+    <string name="end_discount_hint">End in</string>
+    <string name="begin_discount_hint">Begin in</string>
 </resources>
