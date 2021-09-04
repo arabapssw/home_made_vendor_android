@@ -26,10 +26,12 @@
     <string name="visibility_product">إخفاء المنتج</string>
     <string name="tags_allowed_message">لا يمكنك اختيار أكثر من 6  كلمات مفتاحية</string>
     <string name="choose_opening"> + إختر كلمة مفتاحية إضافية </string>
-    <string name="inputLength">يجب أن يكون طول النص الوصف على الأقل 3 حروفٍ</string>
+    <string name="inputLength">يجب أن يكون طول النص  على الأقل 3 حروفٍ</string>
     <string name="not_exceed_150_characters">( لا يزيد عن 150 حرف )</string>
     <string name="price_hint">500 ريال</string>
     <string name="plate_hint">5 اطباق</string>
+    <string name="weight_hint">500 ك.جم</string>
+    <string name="weight_title">الوزن</string>
 
 
 </resources>

@@ -325,11 +325,11 @@ class CustomDialog {
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         val back = ColorDrawable(Color.TRANSPARENT)
         val inset = InsetDrawable(back, 80)
-     //   deleteProductsORProducts
+        //   deleteProductsORProducts
         dialog?.window?.setBackgroundDrawable(inset)
         window?.attributes?.gravity = Gravity.TOP or Gravity.LEFT
-        Log.i("location",location.get(0).toString())
-        Log.i("location",location.get(1).toString())
+        Log.i("location", location.get(0).toString())
+        Log.i("location", location.get(1).toString())
 
         window?.attributes?.x = location.get(0)
         window?.attributes?.y = location.get(1)
@@ -337,11 +337,11 @@ class CustomDialog {
 
         view.findViewById<TextView>(R.id.tV_delete_product).setOnClickListener {
             dialog?.dismiss()
-            productsViewModel.deleteProductsORProducts(id,1)
+            productsViewModel.deleteProductsORProducts(id, 1)
         }
         view.findViewById<TextView>(R.id.tV_delete_all_products).setOnClickListener {
             dialog?.dismiss()
-            productsViewModel.deleteProductsORProducts(null,2)
+            productsViewModel.deleteProductsORProducts(null, 2)
         }
 
 

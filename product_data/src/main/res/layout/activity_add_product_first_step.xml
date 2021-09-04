@@ -27,6 +27,7 @@
                 android:buttonTint="@color/teaBlue"
                 android:text="@string/delivery_in_seller_location_only"
                 android:textSize="10sp"
+                android:textColor="@color/gray178"
                 app:layout_constraintStart_toStartOf="@id/spinner_tags"
                 app:layout_constraintTop_toBottomOf="@id/spinner_tags" />
 
@@ -46,7 +47,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_product_price" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_product_wight" />
 
             <com.test.utils.custom.CustomSpinner
                 android:id="@+id/spinner_tags"
@@ -120,8 +121,9 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:inputType="number"
-                android:hint="@string/price_hint"
+                android:maxLength="10"
 
+                android:hint="@string/price_hint"
                 android:text="@string/price_product"
                 app:layout_constraintEnd_toStartOf="@id/tv_product_quantity"
                 app:layout_constraintStart_toStartOf="@id/tv_description_product_en"
@@ -135,6 +137,8 @@
                 android:layout_marginTop="15dp"
                 android:hint="@string/plate_hint"
                 android:inputType="number"
+                android:maxLength="10"
+
                 android:text="@string/quantity_product"
                 app:layout_constraintEnd_toEndOf="@id/tv_description_product_en"
                 app:layout_constraintStart_toEndOf="@id/tv_product_price"
@@ -150,6 +154,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.test.utils.custom.CustomTitleEditBox
+                android:id="@+id/tv_product_wight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:inputType="number"
+                android:maxLength="10"
+                android:hint="@string/weight_hint"
+                android:text="@string/weight_title"
+                app:layout_constraintEnd_toEndOf="@id/tv_product_quantity"
+                app:layout_constraintStart_toStartOf="@id/tv_product_price"
+                app:layout_constraintTop_toBottomOf="@id/tv_product_price" />
 
 
             <com.test.utils.custom.CustomUploadBtn
