@@ -18,6 +18,9 @@
             android:layout_height="wrap_content">
 
 
+
+
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,16 +83,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
 
-            <ImageView
-                android:id="@+id/iv_favourite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_dots"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <!--            <ImageView-->
             <!--                android:layout_width="15dp"-->
@@ -157,6 +150,17 @@
                 android:src="@drawable/food"
                 android:tint="@color/blackTint"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_dots"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

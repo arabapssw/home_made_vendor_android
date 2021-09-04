@@ -72,8 +72,8 @@ class OrderFragment : BaseFragment(), OrderPagedListAdapter.OnItemClickOfProduct
         })
 
         binding.btnNewOrder.setOnClickListener {
-            val intent = Intent(requireContext(), Class.forName(ADD_PRODUCT_FIRST))
-            context?.startActivity(intent)
+//            val intent = Intent(requireContext(), Class.forName(ADD_PRODUCT_FIRST))
+//            context?.startActivity(intent)
         }
 
 

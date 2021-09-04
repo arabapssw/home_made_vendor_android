@@ -25,5 +25,5 @@ data class User(
     @SerializedName("verified")
     val verified: Boolean,
     @SerializedName("wallet_balance")
-    val walletBalance: Int
+    val walletBalance: Double
 )
