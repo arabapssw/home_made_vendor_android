@@ -15,6 +15,7 @@ import com.homemade.login.LoginActivity
 import com.homemade.login.R
 import com.homemade.login.databinding.FragmentSignInBinding
 import com.homemade.login.signup.FirstStepRegistration
+import com.homemade.store.StoreActivity
 import com.test.utils.*
 import com.test.utils.Bases.BaseFragment
 import com.test.utils.Ext.saveObject
@@ -123,7 +124,8 @@ class SignInFragment : BaseFragment() {
         })
 
         binding.btnCreateAccount.setOnClickListener {
-            startActivity(Intent(requireContext(), FirstStepRegistration::class.java))
+            startActivity(Intent(requireContext(), StoreActivity::class.java))
+            //startActivity(Intent(requireContext(), FirstStepRegistration::class.java))
         }
 
         binding.tvForget.setOnClickListener {

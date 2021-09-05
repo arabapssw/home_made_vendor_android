@@ -170,6 +170,19 @@
     <string name="copy_url">نسخ الرابط</string>
     <string name="delete_product">حذف المنتج</string>
     <string name="delete_product_all">حذف جميع المنتجات</string>
+    <string name="store_data">بيانات المتجر</string>
+    <string name="complete_data">إستكمال البيانات</string>
+    <string name="payment_data">بيانات الدفع</string>
+    <string name="store_created">تم الإنشاء</string>
 
+    <string name="name_store_arabic">إسم المتجر ( اللغه العربية )</string>
+    <string name="name_store_english">إسم المتجر ( اللغه الإنجليزية )</string>
+    <string name="description_store">اخبرنا المزيد عن متجرك ( اللغه العربية )</string>
+    <string name="description_store_en">اخبرنا المزيد عن متجرك ( اللغه الإنجليزية )</string>
+
+    <string name="tax_number">الرقم الضريبي</string>
+    <string name="registered_number">رقم التسجيل في معروف</string>
+    <string name="address">العنوان</string>
+    <string name="select_your_address">حدد عنوانك علي الخريطة</string>
 
 </resources>

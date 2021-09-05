@@ -66,6 +66,7 @@
 
     <color name="colorBlueWhiteish">#F5F9FA</color>
     <color name="colorPaleBlue">#E4F4F6</color>
+    <color name="colorStepInactive">#B0DEE5</color>
 
 
 </resources>

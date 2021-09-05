@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".store_data.StoreDataFragment"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/tv_name_store_ar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@string/name_store_arabic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/tv_name_store_en"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:inputType="text"
+            android:text="@string/name_store_english"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_store_ar" />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/tv_about_store_ar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:inputType="text"
+            android:text="@string/description_store"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_store_en" />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/tv_about_store_en"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:inputType="text"
+            android:text="@string/description_store_en"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_store_ar" />
+
+        <com.test.utils.custom.CustomAddPhoto
+            android:id="@+id/iv_logo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="شعار المتجر"
+            app:layout_constraintEnd_toStartOf="@+id/divider"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="16dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            app:layout_constraintEnd_toStartOf="@+id/iv_banar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iv_logo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_store_en" />
+
+        <com.test.utils.custom.CustomAddPhoto
+            android:id="@+id/iv_banar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="بانر المتجر"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/divider" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نشاط المتجر"
+            android:fontFamily="@font/din_arabic_regular"
+            android:textColor="@color/titleBlack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider1" />
+
+        <com.test.utils.custom.CustomSpinner
+            android:id="@+id/spinner_activity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/divider1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="16dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            app:layout_constraintEnd_toStartOf="@+id/tv_tn_number"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/spinner_activity"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+        <com.test.utils.custom.CustomTitleEditBox
+            android:id="@+id/tv_tn_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="رقم السجل التجاري"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/divider1"
+            app:layout_constraintTop_toTopOf="@+id/divider1" />
+
+
+        <com.test.utils.custom.CustomAddPhoto
+            android:id="@+id/iv_document"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="صورة السجل التجاري / وثيقه العمل الحر"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tn_number" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/teaBlue"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            app:cornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_document" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
