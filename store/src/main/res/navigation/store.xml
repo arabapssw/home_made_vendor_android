@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/store"
+    app:startDestination="@id/storeDataFragment">
+
+    <fragment
+        android:id="@+id/storeDataFragment"
+        android:name="com.homemade.store.store_data.StoreDataFragment"
+        android:label="store_data_fragment"
+        tools:layout="@layout/store_data_fragment" >
+        <action
+            android:id="@+id/action_storeDataFragment_to_completeStoreDataFragment"
+            app:destination="@id/completeStoreDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeStoreDataFragment"
+        android:name="com.homemade.store.store_complete_data.CompleteStoreDataFragment"
+        android:label="complete_store_data_fragment"
+        tools:layout="@layout/complete_store_data_fragment" >
+        <action
+            android:id="@+id/action_completeStoreDataFragment_to_storePaymentFragment"
+            app:destination="@id/storePaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storePaymentFragment"
+        android:name="com.homemade.store.payment_method.StorePaymentFragment"
+        android:label="fragment_store_payment"
+        tools:layout="@layout/fragment_store_payment" >
+        <action
+            android:id="@+id/action_storePaymentFragment_to_storeCreatedFragment"
+            app:destination="@id/storeCreatedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storeCreatedFragment"
+        android:name="com.homemade.store.store_created.StoreCreatedFragment"
+        android:label="fragment_store_created"
+        tools:layout="@layout/fragment_store_created" />
+
+
+</navigation>

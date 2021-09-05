@@ -165,5 +165,19 @@
     <string name="copy_url">Copy Url</string>
     <string name="delete_product">Delete Product</string>
     <string name="delete_product_all">Delete all products</string>
+    <string name="store_data">Store Data</string>
+    <string name="complete_data">Complete Data</string>
+    <string name="payment_data">Payment Data</string>
+    <string name="store_created">Created</string>
+
+    <string name="name_store_arabic">Name of Store (arabic language)</string>
+    <string name="name_store_english">Name of Store (English Language)</string>
+    <string name="description_store">Description Store (Arabic Language)</string>
+    <string name="description_store_en">Description Store (English Language)</string>
+
+    <string name="tax_number">الرقم الضريبي</string>
+    <string name="registered_number">رقم التسجيل في معروف</string>
+    <string name="address">العنوان</string>
+    <string name="select_your_address">حدد عنوانك علي الخريطة</string>
 
 </resources>
