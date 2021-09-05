@@ -12,16 +12,16 @@ import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
 import com.floriaapp.core.domain.model.general.Categories
+import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 import com.floriaapp.core.ui.ProductsViewModel
 import com.floriaapp.core.ui.objectData
 import com.homemade.product_data.databinding.ActivityAddProductFirstStepBinding
+import com.test.utils.*
 import com.test.utils.Bases.BaseActivity
 import com.test.utils.Ext.bitmapToFile
 import com.test.utils.Ext.createSpinner
 import com.test.utils.Ext.saveList
 import com.test.utils.Ext.showToast
-import com.test.utils.NavigationUtils
-import com.test.utils.TAGS
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -31,10 +31,11 @@ import java.io.InputStream
 
 class AddProductFirstStepActivity : BaseActivity() {
     lateinit var binding: ActivityAddProductFirstStepBinding
-    lateinit var imagePath: MultipartBody.Part
+    var imagePath: MultipartBody.Part? = null
     private val productViewModel: ProductsViewModel by viewModel()
     var categoriesSpinner = HashMap<String, String>()
     var categoryList = mutableListOf<Int>()
+    lateinit var productData: ProviderProductsResponseItem
 
 
     var resultLauncher =
@@ -64,14 +65,31 @@ class AddProductFirstStepActivity : BaseActivity() {
         binding = ActivityAddProductFirstStepBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        val data = intent.extras
+        val isEdit = data?.getBoolean(EDIT_PRODUCT, false)
+        if (isEdit == true) {
+            productData = data.get(PRODUCT_DATA) as ProviderProductsResponseItem
+            bindDataToViews(productData)
+
+        }
+
         binding.btnNextAdd.setOnClickListener {
-            val checkingAll = isFieldsEmpty()
+            val checkingAll = isFieldsEmpty(isEdit)
             if (!checkingAll) {
                 prepareData()
-                NavigationUtils.goToDestination2(
-                    this,
-                    AddProductSecondStepActivity::class.java
-                )
+
+                if (isEdit == true) {
+                    val intent = Intent(this, AddProductSecondStepActivity::class.java)
+                    intent.putExtra(PRODUCT_DATA, productData)
+                    intent.putExtra(EDIT_PRODUCT, true)
+                    startActivity(intent)
+                } else {
+                    NavigationUtils.goToDestination2(
+                        this,
+                        AddProductSecondStepActivity::class.java
+                    )
+                }
             }
 
 
@@ -93,6 +111,19 @@ class AddProductFirstStepActivity : BaseActivity() {
         })
 
 
+    }
+
+    private fun bindDataToViews(productData: ProviderProductsResponseItem) {
+        with(binding) {
+            tvNameProductAr.editText.setText(productData.nameAr)
+            tvNameProductEn.editText.setText(productData.nameEn)
+            tvDescriptionProductAr.editText.setText(productData.descriptionAr)
+            tvDescriptionProductEn.editText.setText(productData.descriptionEn)
+            tvProductPrice.editText.setText(productData.price.toString())
+            tvProductQuantity.editText.setText(productData.quantity.toString())
+            tvProductWight.editText.setText(productData.weight.toString())
+
+        }
     }
 
     fun prepareData() {
@@ -119,9 +150,13 @@ class AddProductFirstStepActivity : BaseActivity() {
                 "text/plain".toMediaTypeOrNull(),
                 binding.tvProductPrice.getText()
             )
-            weight = RequestBody.create(
+            quantity = RequestBody.create(
                 "text/plain".toMediaTypeOrNull(),
                 binding.tvProductQuantity.getText()
+            )
+            weight = RequestBody.create(
+                "text/plain".toMediaTypeOrNull(),
+                binding.tvProductWight.getText()
             )
 
         }
@@ -158,7 +193,7 @@ class AddProductFirstStepActivity : BaseActivity() {
 
     }
 
-    private fun isFieldsEmpty(): Boolean {
+    private fun isFieldsEmpty(isEdit: Boolean?): Boolean {
         when (true) {
             binding.tvNameProductAr.editText.text.trim().isEmpty() -> {
                 binding.tvNameProductAr.editText.error = resources.getString(R.string.checkInput)
@@ -187,7 +222,8 @@ class AddProductFirstStepActivity : BaseActivity() {
 
             binding.tvDescriptionProductAr.editText.text.trim().length < 3 -> {
 
-                binding.tvDescriptionProductAr.editText.error = resources.getString(R.string.inputLength)
+                binding.tvDescriptionProductAr.editText.error =
+                    resources.getString(R.string.inputLength)
                 return true
             }
 
@@ -199,7 +235,8 @@ class AddProductFirstStepActivity : BaseActivity() {
             }
 
             binding.tvDescriptionProductEn.editText.text.trim().length < 3 -> {
-                binding.tvDescriptionProductEn.editText.error = resources.getString(R.string.inputLength)
+                binding.tvDescriptionProductEn.editText.error =
+                    resources.getString(R.string.inputLength)
                 return true
             }
             binding.tvProductPrice.editText.text.trim().isEmpty() -> {
@@ -214,10 +251,15 @@ class AddProductFirstStepActivity : BaseActivity() {
                 return true
             }
 
-            !::imagePath.isInitialized -> {
-                showToast(resources.getString(R.string.upload_image_please))
-                return true
+
+            imagePath == null -> {
+                if (isEdit == true) return false
+                else {
+                    showToast(resources.getString(R.string.upload_image_please))
+                    return true
+                }
             }
+
 
             else -> return false
         }

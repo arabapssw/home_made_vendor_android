@@ -24,7 +24,6 @@ import com.floriaapp.core.ui.LoginViewModel
 import com.floriaapp.core.ui.OrderViewModel
 import com.floriaapp.core.ui.ProductsViewModel
 import com.test.utils.BANK
-import com.test.utils.Bases.BaseActivity
 import com.test.utils.Ext.getObject
 import com.test.utils.Ext.isTimeWith_in_Interval
 import com.test.utils.Ext.showToast
@@ -313,7 +312,8 @@ class CustomDialog {
         activity: Activity?,
         location: IntArray,
         productsViewModel: ProductsViewModel,
-        id: Int
+        id: Int,
+        function: () -> Unit
     ) {
 
         dialog = activity?.let { Dialog(it) }!!
@@ -338,6 +338,11 @@ class CustomDialog {
         view.findViewById<TextView>(R.id.tV_delete_product).setOnClickListener {
             dialog?.dismiss()
             productsViewModel.deleteProductsORProducts(id, 1)
+        }
+
+        view.findViewById<TextView>(R.id.tV_edit_product).setOnClickListener {
+            dialog?.dismiss()
+            function()
         }
         view.findViewById<TextView>(R.id.tV_delete_all_products).setOnClickListener {
             dialog?.dismiss()

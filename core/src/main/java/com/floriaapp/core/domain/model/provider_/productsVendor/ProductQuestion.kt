@@ -1,8 +1,11 @@
 package com.floriaapp.core.domain.model.provider_.productsVendor
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ProductQuestion(
     @SerializedName("answer_ar")
     val answerAr: String,
@@ -16,4 +19,4 @@ data class ProductQuestion(
     val questionEn: String,
     @SerializedName("status")
     val status: String
-)
+):Parcelable

@@ -16,13 +16,16 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.contains
 import androidx.lifecycle.Observer
+import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 import com.floriaapp.core.domain.model.provider_.productsVendor.Tag
 import com.floriaapp.core.ui.ProductsViewModel
 import com.floriaapp.core.ui.objectData
 import com.google.android.material.chip.Chip
 import com.homemade.product_data.databinding.ActivityAddProductSecondBinding
 import com.test.utils.Bases.BaseActivity
+import com.test.utils.EDIT_PRODUCT
 import com.test.utils.Ext.*
+import com.test.utils.PRODUCT_DATA
 import com.test.utils.TAGS
 import com.test.utils.TOTAL_TAGS_ALLOWED
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -43,6 +46,7 @@ class AddProductSecondStepActivity : BaseActivity() {
     var listOfImages = mutableListOf<MultipartBody.Part>()
     var tagsListInteger = mutableListOf<Int>()
      var calenderInMilis:Long = 0L
+    lateinit var productData:ProviderProductsResponseItem
 
 
     @SuppressLint("SetTextI18n")
@@ -77,13 +81,22 @@ class AddProductSecondStepActivity : BaseActivity() {
         playWithViews()
         attachSpinnersToData()
 
+
+        val data = intent.extras
+        val isEdit = data?.getBoolean(EDIT_PRODUCT, false)
+        if (isEdit == true) {
+            productData = data.get(PRODUCT_DATA) as ProviderProductsResponseItem
+            bindDataToViews(productData)
+
+        }
+
         productViewModel.SuccessMessage.observe(this, Observer {
             dismissProgressDialog()
-            showToast("success")
+            showToast(it.message)
         })
         productViewModel.Error.observe(this, Observer {
             dismissProgressDialog()
-            showToast("Error")
+            showToast(it)
         })
 
         binding.btnAddProduct.setOnClickListener {
@@ -91,7 +104,8 @@ class AddProductSecondStepActivity : BaseActivity() {
             if (!checked) {
                 showProgress()
                 Log.i("productData", prepareData().toString())
-                productViewModel.storeProduct(prepareData())
+                if (isEdit == true) productViewModel.editProduct(prepareData(),productData.id)
+                else productViewModel.storeProduct(prepareData())
             }
         }
 
@@ -99,6 +113,28 @@ class AddProductSecondStepActivity : BaseActivity() {
             val photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "image/*"
             resultLauncher.launch(photoPickerIntent)
+        }
+    }
+
+    private fun bindDataToViews(productData: ProviderProductsResponseItem) {
+        with(binding){
+            tvSku.editText.setText(productData.sku)
+            tvProductDiscount.editText.setText(productData.discount.toString())
+            tvBeginDiscount.editText.setText(productData.discountStartDate)
+            tvEndDiscount.editText.setText(productData.discountEndDate)
+            productStatusCheck.switchCompat.isChecked = productData.active==1
+            productPinCheck.switchCompat.isChecked = productData.pinned==1
+            productData.tags.forEachIndexed { index, tag ->
+                val chip = createChip(
+                    Tag(
+                        id = tag.id,
+                        name = tag.name
+                    )
+                )
+                if (!binding.chipGroup.contains(chip)) binding.chipGroup.addView(chip)
+            }
+
+
         }
     }
 

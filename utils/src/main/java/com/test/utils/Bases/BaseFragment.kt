@@ -44,8 +44,8 @@ open class BaseFragment : Fragment() {
         customDialog.showSuccessResetPassword(requireActivity())
     }
 
-    fun showMoreDialog(location: IntArray, productsViewModel: ProductsViewModel, id: Int) {
-        customDialog.showMoreDialog(requireActivity(),location,productsViewModel,id)
+    fun showMoreDialog(location: IntArray, productsViewModel: ProductsViewModel, id: Int,function: () -> Unit) {
+        customDialog.showMoreDialog(requireActivity(),location,productsViewModel,id,function)
     }
     fun showSuccessFavouriteMessage(message: String) {
         customDialog.showSuccessFavourites(requireActivity(),message)

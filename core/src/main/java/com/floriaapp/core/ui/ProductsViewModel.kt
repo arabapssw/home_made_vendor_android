@@ -19,11 +19,11 @@ import com.floriaapp.core.domain.model.category.categoryProductItem
 import com.floriaapp.core.domain.model.general.GeneralDataResponse
 import com.floriaapp.core.domain.model.orderSuccess.OrderSuccess
 import com.floriaapp.core.domain.model.product.ProductDetailsResponse
-import com.floriaapp.core.domain.model.product.image
 import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProductsResponseItem
 import com.floriaapp.core.domain.model.success.SuccessMessage
 import com.floriaapp.core.domain.model.tagItems.TagsProducts
 import kotlinx.coroutines.flow.Flow
+import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
@@ -183,6 +183,37 @@ class ProductsViewModel(var productsApi: productsApi) : ViewModel() {
                 categories = productBody.categories,
                 tags = productBody.tags,
                 images = productBody.images
+            )
+
+        }, errorReturned = {
+            Log.e("error", it.message.toString())
+            _Error.postValue(it.toErrorBody())
+        })
+    }
+
+    fun editProduct(productBody: objectData, productId: Int) {
+        launchDataLoad(execution = {
+
+            _SuccessMessage.value = productsApi.editProduct(
+                nameArabic = productBody.nameArabic,
+                nameEnglish = productBody.nameEnglish,
+                descriptionArabic = productBody.descriptionArabic,
+                descriptionEnglish = productBody.descriptionEnglish,
+                discountStart = productBody.discount_start_date,
+                discountEnd = productBody.discount_end_date,
+                sku = productBody.sku,
+                priceProduct = productBody.price,
+                discount = productBody.discount,
+                weight = productBody.weight,
+                quantity = productBody.quantity,
+                image = productBody.image,
+                active = productBody.active,
+                pinned = productBody.pinned,
+                categories = productBody.categories,
+                tags = productBody.tags,
+                images = productBody.images,
+                productId = productId,
+                method = RequestBody.create(MediaType.get("text/plain"), "PUT")
             )
 
         }, errorReturned = {

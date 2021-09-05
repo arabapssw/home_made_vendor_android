@@ -94,7 +94,6 @@ interface productsApi {
     suspend fun toggleProductStatus(@Path("productId") productId: Int): SuccessMessage
 
 
-
     @DELETE("/api/v1/provider/products/{product_id}")
     suspend fun deleteProduct(@Path("product_id") productId: Int): SuccessMessage
 
@@ -118,7 +117,8 @@ interface productsApi {
         @Query("list[]") firstList: String = "countries",
         @Query("list[]") secondList: String = "nationalities",
         @Query("list[]") thirdList: String = "bankTransferSettings",
-        @Query("list[]") fourthList: String = "settings"): GeneralDataResponse
+        @Query("list[]") fourthList: String = "settings"
+    ): GeneralDataResponse
 
 
     @POST("/api/v1/provider/products")
@@ -140,5 +140,31 @@ interface productsApi {
         @Part("pinned") pinned: RequestBody?,
         @Part("categories[]") categories: MutableList<Int>?,
         @Part("tags[]") tags: MutableList<Int>?,
-        @Part images:ArrayList<MultipartBody.Part>?): SuccessMessage?
+        @Part images: ArrayList<MultipartBody.Part>?
+    ): SuccessMessage?
+
+
+    @POST("/api/v1/provider/products/{product_id}")
+    @Multipart
+    suspend fun editProduct(
+        @Part("name_ar") nameArabic: RequestBody?,
+        @Part("name_en") nameEnglish: RequestBody?,
+        @Part("description_ar") descriptionArabic: RequestBody?,
+        @Part("description_en") descriptionEnglish: RequestBody?,
+        @Part("discount_start_date") discountStart: RequestBody?,
+        @Part("discount_end_date") discountEnd: RequestBody?,
+        @Part("sku") sku: RequestBody?,
+        @Part("price") priceProduct: RequestBody?,
+        @Part("discount") discount: RequestBody?,
+        @Part("weight") weight: RequestBody?,
+        @Part("quantity") quantity: RequestBody?,
+        @Part image: MultipartBody.Part?,
+        @Part("active") active: RequestBody?,
+        @Part("pinned") pinned: RequestBody?,
+        @Part("categories[]") categories: MutableList<Int>?,
+        @Part("tags[]") tags: MutableList<Int>?,
+        @Part images: ArrayList<MultipartBody.Part>?,
+        @Path("product_id") productId: Int,
+        @Part("_method") method:RequestBody
+    ): SuccessMessage?
 }

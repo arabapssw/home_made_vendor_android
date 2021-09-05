@@ -1,6 +1,7 @@
 package com.homemade.products
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,8 +16,12 @@ import com.floriaapp.core.domain.model.provider_.productsVendor.ProviderProducts
 import com.floriaapp.core.ui.ProductsViewModel
 import com.homemade.products.adapter.ProductsPagedAdapter
 import com.homemade.products.databinding.FragmentProductsBinding
+import com.test.utils.ADD_PRODUCT_FIRST
 import com.test.utils.Bases.BaseFragment
 import com.test.utils.Bases.Communication
+import com.test.utils.EDIT_PRODUCT
+import com.test.utils.PRODUCT_DATA
+import com.test.utils.SPLASH_DELAY
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -128,7 +133,13 @@ class productsFragment : BaseFragment(), ProductsPagedAdapter.OnItemClickOfProdu
     }
 
     override fun onMoreClicked(item: ProviderProductsResponseItem, location: IntArray) {
-        showMoreDialog(location,productsViewModel,item.id)
+        showMoreDialog(location,productsViewModel,item.id,function = {
+            val intent = Intent(requireContext(), Class.forName(ADD_PRODUCT_FIRST))
+            intent.putExtra(PRODUCT_DATA,item)
+            intent.putExtra(EDIT_PRODUCT,true)
+
+            context?.startActivity(intent)
+        })
     }
 
 

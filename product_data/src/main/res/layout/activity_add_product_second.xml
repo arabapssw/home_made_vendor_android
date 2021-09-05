@@ -39,7 +39,7 @@
 
         <com.test.utils.custom.CustomTitleEditBox
             android:layout_width="0dp"
-            android:inputType="text"
+            android:inputType="number"
             app:layout_constraintHorizontal_weight="1"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"

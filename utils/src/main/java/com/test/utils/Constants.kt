@@ -17,7 +17,9 @@ const val PAYMENT_STATUS = "payment"
 const val FIREBASE_TOKEN= "firebaseToken"
 const val TOTAL_ORDER_MONEY="total_money_order"
 
-const val TOTAL_MONEY="total_money"
+const val PRODUCT_DATA="product_data"
+const val EDIT_PRODUCT="edit_product"
+
 const val ORDER_ID = "order_id"
 const val FROM_FAQ = "from_faq"
 const val FROM_EXPRESS = "from_faq"

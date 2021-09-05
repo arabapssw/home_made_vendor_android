@@ -14,7 +14,6 @@ import com.floriaapp.core.domain.model.checkout.shipping.new.Shipping
 import com.floriaapp.core.domain.model.summary.SummaryOrder
 import com.google.android.material.button.MaterialButton
 import com.test.utils.R
-import com.test.utils.TOTAL_MONEY
 import com.test.utils.TOTAL_ORDER_MONEY
 
 class CustomOrderPrice(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {

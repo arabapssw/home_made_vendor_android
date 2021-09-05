@@ -1,8 +1,11 @@
 package com.floriaapp.core.domain.model.provider_.productsVendor
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ProviderProductsResponseItem(
     @SerializedName("active")
     val active: Int,
@@ -46,4 +49,4 @@ data class ProviderProductsResponseItem(
     val url: String,
     @SerializedName("weight")
     val weight: Double
-)
+):Parcelable
